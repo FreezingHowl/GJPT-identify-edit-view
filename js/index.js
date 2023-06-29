@@ -21,42 +21,42 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
     * 初始化页面
     */
     function initPage () {
-                // 初始化工具内容
-                initTool();
-                // 初始化左侧列表
-                initLeftList();
-                // 初始化服务数据
-                initSercerBox();
-                // 初始化JSON编辑器
-                initJsonEditor();
+        // 初始化工具内容
+        initTool();
+        // 初始化左侧列表
+        initLeftList();
+        // 初始化服务数据
+        initSercerBox();
+        // 初始化JSON编辑器
+        initJsonEditor();
     }
     /*
             * 初始化工具内容
             */
     function initTool() {
-                // 初始化导入事件
-                document.getElementById("input").addEventListener("change", function (response) {
-                    let file = response.target.files[0];
-                    const reader = new  FileReader()
-                    reader.readAsText(file);
-                    reader.onloadend = function (event) {
-                        jsonData = JSON.parse(event.srcElement.result);
-                        
-                        // 获取属性识别数据
-                        identifyData = getIdentifyDataByTplData();
+        // 初始化导入事件
+        document.getElementById("input").addEventListener("change", function (response) {
+            let file = response.target.files[0];
+            const reader = new  FileReader()
+            reader.readAsText(file);
+            reader.onloadend = function (event) {
+                jsonData = JSON.parse(event.srcElement.result);
+                
+                // 获取属性识别数据
+                identifyData = getIdentifyDataByTplData();
 
-                        if(identifyData) {
-                            jsonEditorObj.set(jsonData);
-                        } else {
-                            layer.msg("请上传TPL模板格式数据", {icon: 0});
-                        }
-                    }
-                })
+                if(identifyData) {
+                    jsonEditorObj.set(jsonData);
+                } else {
+                    layer.msg("请上传TPL模板格式数据", {icon: 0});
+                }
+            }
+        })
 
-                // 初始化工具事件
-                util.on('lay-tool', {
-                    // 获取字段
-                    getField: function() {
+        // 初始化工具事件
+        util.on('lay-tool', {
+            // 获取字段
+            getField: function() {
                         let id = this.getAttribute("data-id");
                         let index = currentServer.layers.findIndex(e => e.id == id);
                         let layer = currentServer.layers[index];
@@ -120,30 +120,30 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                             default: break;
                         }
 
-                    },
-                    // 获取数据服务地址
-                    getDataUrl: function(event) {
-                        let dataUrlDom = document.getElementById("dataUrl");
-                        let urlDom = document.getElementById("url");
-                        let serverUrl = urlDom.value;
-                        let sblitByOne = serverUrl.split("/rest");
-                        let sblitByTwo = sblitByOne[0].split("/map");
-                        let tempDataUrl = sblitByTwo[0] + "/data" + sblitByTwo[1] + "/rest/data";
+            },
+            // 获取数据服务地址
+            getDataUrl: function(event) {
+                let dataUrlDom = document.getElementById("dataUrl");
+                let urlDom = document.getElementById("url");
+                let serverUrl = urlDom.value;
+                let sblitByOne = serverUrl.split("/rest");
+                let sblitByTwo = sblitByOne[0].split("/map");
+                let tempDataUrl = sblitByTwo[0] + "/data" + sblitByTwo[1] + "/rest/data";
 
-                        // 测试数据地址是否可访问
-                        getServerData(tempDataUrl + ".json").then(res => {
-                            if(res) {
-                                dataUrlDom.value = tempDataUrl;
-                                currentServer.serverInfo.dataUrl = tempDataUrl;
-                            } else {
-                                layer.msg("数据服务地址不存在！", {icon: 0});
-                            }
-                        }).catch(() => {
-                            layer.msg("数据服务地址不存在！", {icon: 0});
-                        })
-
+                // 测试数据地址是否可访问
+                getServerData(tempDataUrl + ".json").then(res => {
+                    if(res) {
+                        dataUrlDom.value = tempDataUrl;
+                        currentServer.serverInfo.dataUrl = tempDataUrl;
+                    } else {
+                        layer.msg("数据服务地址不存在！", {icon: 0});
                     }
-                });
+                }).catch(() => {
+                    layer.msg("数据服务地址不存在！", {icon: 0});
+                })
+
+            }
+        });
     }
     /**
      * 从模板数据中获取属性识别数据
@@ -193,10 +193,11 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             // 获取地址并请求数据（赋值资源接口）
             let catalogUrl = field.catalogApi;
             resourceUrl = field.resourceApi;
+
             getServerData(catalogUrl).then(res => {
-                 if (res) {
+              if (res) {
                     // 获取所有资源列表
-                    let catalogTree = JSON.parse(res);
+                    let catalogTree = res;
                     let resourceList = getResourceListByCatalogTree(catalogTree.children);
                     
                     // 渲染资源列表
@@ -206,7 +207,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                         renderDom.innerHTML = html;
                     });
                 }
-            }).catch(() => {
+            }).catch(()=> {
                 layer.msg("获取资源资源列表失败！", {icon: 0});
             })
              // 阻止默认 form 跳转
@@ -581,6 +582,8 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                 widgets[identifyIndex].config.services = services;
                 oledJson.widgets = widgets;
                 jsonEditorObj.set(oledJson);
+
+                layer.msg("配置添加成功！", {icon: 0});
             } else {
                 layer.msg("未获取到属性识别配置！", {icon: 0});
             }

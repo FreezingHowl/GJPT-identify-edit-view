@@ -1,0 +1,5778 @@
+{
+  "title": "测试模板-SZY-2.3.0",
+  "logo": "/map/imgs/map/4490.png",
+  "geometryService": "http://192.168.2.94:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer",
+  "isShowHeader": true,
+  "globalUrl": null,
+  "fileImportService": "/map/rest/analysis/parseGeoFile",
+  "examineGeometryUrl": "https://www.fastmock.site/mock/2f0f82ac8468862eeef44ecd6987d86a/api/api/checkGeojson",
+  "exportExcelService": "/map/rest/analysis/export/excel/url",
+  "exportWordService": "/map/word/export",
+  "regionIndex": "xzq_c_2018,xzq_d_2018",
+  "map": {
+    "baseLayers": [
+      {
+        "id": "ff808081785d012501785e2a94e30003",
+        "title": "江苏政区2018",
+        "type": "ags_tile",
+        "url": "http://192.168.2.94:6080/arcgis/rest/services/XZQ/XZQ_4527/MapServer",
+        "visible": true,
+        "display": true,
+        "alpha": 1,
+        "index": 0,
+        "png": null,
+        "className": null,
+        "thumbnail": "http://192.168.2.197:8019/storage/rest/files/ff8080817beda9ac017c2a04aaba0069/thumbnail?w=110&h=95",
+        "status": null,
+        "config": null,
+        "layers": [
+          {
+            "id": "ff808081785d012501785e2a94e30003",
+            "alias": "江苏政区2018",
+            "name": null,
+            "type": "ags_tile",
+            "crs": null,
+            "url": "http://192.168.2.94:6080/arcgis/rest/services/XZQ/XZQ_4527/MapServer",
+            "tileUrl": "http://192.168.2.94:6080/arcgis/rest/services/XZQ/XZQ_4527/MapServer",
+            "maxZoom": 20,
+            "minZoom": 0,
+            "zoomOffset": 0,
+            "spatialCoverage": null
+          }
+        ]
+      },
+      {
+        "id": "ff8080817c91f6ac017c964e277c0016",
+        "title": "遥感",
+        "type": "ags_tile",
+        "url": "http://192.168.1.46:9011/resp/ff8080817bed8ad4017c964e279a0176/ff8080817c91f6ac017c964e277c0016/ags_tile",
+        "visible": true,
+        "display": true,
+        "alpha": 1,
+        "index": 0,
+        "png": null,
+        "className": null,
+        "thumbnail": "http://192.168.2.197:8019/storage/rest/files/ff8080817beda9ac017c2a04aaba0069/thumbnail?w=110&h=95",
+        "status": null,
+        "config": null,
+        "layers": [
+          {
+            "id": "ff8080817c91f6ac017c964e277c0016",
+            "alias": "遥感影像2014",
+            "name": null,
+            "type": "ags_tile",
+            "crs": null,
+            "url": "http://192.168.1.46:9011/resp/ff8080817bed8ad4017c964e279a0176/ff8080817c91f6ac017c964e277c0016/ags_tile",
+            "tileUrl": "http://218.2.231.245/historyraster/rest/services/History/js_yxdt_2014/MapServer",
+            "maxZoom": 20,
+            "minZoom": 0,
+            "zoomOffset": 0,
+            "spatialCoverage": null
+          },
+          {
+            "id": "ff8080817c91f6ac017c964ed265001c",
+            "alias": "遥感影像注记2014",
+            "name": null,
+            "type": "ags_tile",
+            "crs": null,
+            "url": "http://192.168.2.197:9011/resp/ff8080817bed8ad4017c964ed2860178/ff8080817c91f6ac017c964ed265001c/ags_tile",
+            "tileUrl": "http://218.2.231.245/historyraster/rest/services/History/js_yxzj_2014/MapServer",
+            "maxZoom": 20,
+            "minZoom": 0,
+            "zoomOffset": 0,
+            "spatialCoverage": null
+          }
+        ]
+      },
+      {
+        "id": "402809817d4ac700017d4acc72530004",
+        "title": "底图测试",
+        "type": "ags_rest",
+        "url": "http://192.168.1.46:9011/resp/ff8080817d7ede4b017db817bff61441/402809817d4ac700017d4acc72530004/ags_rest",
+        "visible": true,
+        "display": true,
+        "alpha": 1,
+        "index": 0,
+        "png": null,
+        "className": null,
+        "thumbnail": "http://192.168.2.197:8019/storage/rest/files/ff8080817beda9ac017c2a04aaba0069/thumbnail?w=110&h=95",
+        "status": null,
+        "config": null,
+        "layers": [
+          {
+            "id": "402809817d4ac700017d4acc72530004",
+            "alias": "江苏政区2018",
+            "name": null,
+            "type": "ags_rest",
+            "crs": null,
+            "url": "http://192.168.1.46:9011/resp/ff8080817d7ede4b017db817bff61441/402809817d4ac700017d4acc72530004/ags_rest",
+            "tileUrl": "",
+            "maxZoom": 20,
+            "minZoom": 0,
+            "zoomOffset": 0,
+            "spatialCoverage": null
+          }
+        ]
+      }
+    ],
+    "layers": [],
+    "options": {
+      "crs": {
+        "wkid": 4490
+      },
+      "zoom": 0,
+      "initBounds": [
+        [
+          35.41992085688668,
+          123.87085527765123
+        ],
+        [
+          30.60241588421052,
+          113.32398008091434
+        ]
+      ],
+      "params": {
+        "lods": [
+          {
+            "level": 0,
+            "scale": 2308574.98883465,
+            "resolution": 0.005493164164967124
+          },
+          {
+            "level": 1,
+            "scale": 1154287.49441732,
+            "resolution": 0.0027465820824835504
+          },
+          {
+            "level": 2,
+            "scale": 577143.747208662,
+            "resolution": 0.0013732910412417797
+          },
+          {
+            "level": 3,
+            "scale": 288571.873604331,
+            "resolution": 0.0006866455206208899
+          },
+          {
+            "level": 4,
+            "scale": 144285.936802165,
+            "resolution": 0.0003433227603104438
+          },
+          {
+            "level": 5,
+            "scale": 72142.9684010827,
+            "resolution": 0.0001716613801552224
+          },
+          {
+            "level": 6,
+            "scale": 36071.4842005414,
+            "resolution": 0.00008583069007761132
+          },
+          {
+            "level": 7,
+            "scale": 18035.7421002707,
+            "resolution": 0.00004291534503880566
+          },
+          {
+            "level": 8,
+            "scale": 9017.87105013534,
+            "resolution": 0.000021457672519402802
+          },
+          {
+            "level": 9,
+            "scale": 4508.93552506767,
+            "resolution": 0.000010728836259701401
+          },
+          {
+            "level": 10,
+            "scale": 2254.46776253384,
+            "resolution": 0.000005364418129850712
+          },
+          {
+            "level": 11,
+            "scale": 1127.23388126692,
+            "resolution": 0.000002682209064925356
+          },
+          {
+            "level": 12,
+            "scale": 563.61694063346,
+            "resolution": 0.000001341104532462678
+          }
+        ],
+        "origin": [
+          -180,
+          90
+        ],
+        "resolutions": [
+          0.005493164164967124,
+          0.0027465820824835504,
+          0.0013732910412417797,
+          0.0006866455206208899,
+          0.0003433227603104438,
+          0.0001716613801552224,
+          0.00008583069007761132,
+          0.00004291534503880566,
+          0.000021457672519402802,
+          0.000010728836259701401,
+          0.000005364418129850712,
+          0.000002682209064925356,
+          0.000001341104532462678
+        ],
+        "bounds": [
+          [
+            -180,
+            -90
+          ],
+          [
+            180,
+            90
+          ]
+        ],
+        "definition": "+proj=longlat +ellps=GRS80 +no_defs"
+      }
+    }
+  },
+  "widgets": [
+    {
+      "id": "datalist",
+      "uri": "datalist",
+      "label": "资源服务",
+      "iconCls": "icon-f-tickets",
+      "config": {
+        "showNullNodes": true,
+        "type": "ZRZYML",
+        "showFavorite": true,
+        "showAttrBtn": true,
+        "openBaseLayerSwitchState": false,
+        "ifVisabled": true,
+        "showDetail": false,
+        "services": [
+          {
+            "id": "ff80808184e6651f018556bbb9df023e",
+            "dataUrl1": "http://localhost:8090/iserver/services/data-BPDK_2k_nj/rest",
+            "areaFields": {
+              "BPDK_2k_nj@BPDK_2k_nj": "AREA,SHAPE_AREA"
+            }
+          }
+        ]
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#5fcde8"
+    },
+    {
+      "id": "layerlist",
+      "uri": "layerlist",
+      "label": "图层控制",
+      "iconCls": "icon-f-layers",
+      "config": {
+        "services": [
+          {
+            "serviceid": "xxxxx",
+            "url": "http://xxxxx/spm_rest"
+          }
+        ]
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#1945d8"
+    },
+    {
+      "id": "identify",
+      "uri": "identify",
+      "label": "属性识别",
+      "iconCls": "icon-f-watch-later",
+      "config": {
+        "polygonStyle": {
+          "color": "red",
+          "fillColor": "#add2ff",
+          "fillOpacity": 0.5
+        },
+        "highLightStyle": {
+          "color": "red",
+          "fillColor": "#f0fa2e",
+          "fillOpacity": 0.5
+        },
+        "saveResult": false,
+        "isShowLayerName": true,
+        "services": [
+          {
+            "serverid": "ff8080818465b838018488853ae9050c",
+            "realUrl": "http://192.168.50.176:8090/iserver/services/map-qhlx_chn/wms130/qhlx",
+            "layerid": "0.0",
+            "fields": [
+              "name",
+              "smid",
+              "smarea"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817c157df4017c2b4bbabb0079",
+            "layerid": 0,
+            "fileds": [
+              "地块ID",
+              "项目ID",
+              "报件ID",
+              "项目名称",
+              "地块用途",
+              "申请单位名称",
+              "行政代码",
+              "报件名称",
+              "项目类型",
+              "项目子类型",
+              "地块面积",
+              "批复文号",
+              "批复日期",
+              "批准机关",
+              "项目状态",
+              "地块名称",
+              "SHAPE",
+              "统计行政区名称",
+              "入库时间",
+              "统计行政区代码",
+              "统计年度",
+              "行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff80808173c1ba1a0173e669a049002f",
+            "layerid": 0,
+            "fileds": [
+              "地类编码",
+              "地类名称",
+              "线状地物预编号",
+              "线状地物编号",
+              "长度",
+              "宽度",
+              "线状地物面积",
+              "线状地物名称",
+              "权属单位代码1",
+              "权属单位名称1",
+              "权属单位代码2",
+              "权属单位名称2",
+              "扣除图斑编号1",
+              "扣除图斑单位代码1",
+              "扣除图斑编号2",
+              "扣除图斑单位代码2",
+              "权属性质",
+              "扣除比例",
+              "变更记录号",
+              "变更日期",
+              "地类备注",
+              "分区行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff80808173c1ba1a0173e669a049002f",
+            "layerid": 1,
+            "fileds": [
+              "地类名称",
+              "地类编码",
+              "权属性质",
+              "权属单位代码",
+              "权属单位名称",
+              "座落单位代码",
+              "座落单位名称",
+              "耕地类型",
+              "扣除类型",
+              "扣除地类编码",
+              "扣除地类系数",
+              "图斑面积",
+              "线状地物面积",
+              "零星地物面积",
+              "扣除地类面积",
+              "图斑地类面积",
+              "批准文号",
+              "变更记录号",
+              "变更日期",
+              "地类备注",
+              "耕地坡度级",
+              "分区行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff80808173c1ba1a0173e669cfed0030",
+            "layerid": 0,
+            "fileds": [
+              "地类编码",
+              "地类名称",
+              "线状地物预编号",
+              "线状地物编号",
+              "长度",
+              "宽度",
+              "线状地物面积",
+              "线状地物名称",
+              "权属单位代码1",
+              "权属单位名称1",
+              "权属单位代码2",
+              "权属单位名称2",
+              "扣除图斑编号1",
+              "扣除图斑单位代码1",
+              "扣除图斑编号2",
+              "扣除图斑单位代码2",
+              "权属性质",
+              "扣除比例",
+              "变更记录号",
+              "变更日期",
+              "地类备注",
+              "分区行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff80808173c1ba1a0173e669cfed0030",
+            "layerid": 1,
+            "fileds": [
+              "图斑编号",
+              "地类编码",
+              "地类名称",
+              "权属性质",
+              "权属单位代码",
+              "权属单位名称",
+              "座落单位代码",
+              "座落单位名称",
+              "耕地类型",
+              "扣除类型",
+              "扣除地类编码",
+              "扣除地类系数",
+              "图斑面积",
+              "线状地物面积",
+              "零星地物面积",
+              "扣除地类面积",
+              "图斑地类面积",
+              "批准文号",
+              "变更记录号",
+              "变更日期",
+              "地类备注",
+              "耕地坡度级",
+              "分区行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817322c09101738f19a06c006e",
+            "layerid": 1,
+            "fileds": [
+              "地块ID",
+              "项目ID",
+              "用地情况ID",
+              "国务院批复ID",
+              "地块名称",
+              "项目名称",
+              "地块用途",
+              "申请单位名称",
+              "行政代码",
+              "项目类型",
+              "项目子类型",
+              "地块面积",
+              "批复文号",
+              "批复日期",
+              "批准机关",
+              "项目状态",
+              "报件名称",
+              "SHAPE",
+              "入库时间",
+              "行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff80808173c1ba1a0173dc94e78a0017",
+            "layerid": 0,
+            "fileds": [
+              "宗地ID",
+              "地块编号",
+              "地块名称",
+              "地块面积",
+              "地块用途",
+              "供地ID",
+              "行政区代码",
+              "合同/划拨编号",
+              "投资项目名称",
+              "土地级别",
+              "土地座落",
+              "供地面积",
+              "土地供应方式",
+              "主要土地用途",
+              "金额",
+              "合同约定开工时间",
+              "批准文号",
+              "批准日期",
+              "权利人",
+              "地块ID",
+              "电子备案编号",
+              "供地总面积",
+              "批次面积",
+              "出让年限",
+              "成交总价",
+              "容积率下限",
+              "容积率上限",
+              "约定交地时间",
+              "竣工开工时间",
+              "实际交地时间",
+              "实际开工时间",
+              "实际竣工时间",
+              "开发建设期限",
+              "签定日期",
+              "项目状态",
+              "入库时间",
+              "行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817322c09101738f240b53007a",
+            "layerid": 0,
+            "fileds": [
+              "地块ID",
+              "地块名称",
+              "行政区代码",
+              "建设项目名称",
+              "建设项目投资单位",
+              "拟审批（核准、备案）建设项目机关",
+              "批准类型",
+              "行业分类",
+              "预审项目_规划依据",
+              "项目_用地总面积",
+              "项目_农用地面积",
+              "项目_农用地耕地面积",
+              "项目_农用地基本农田面积",
+              "项目_建设用地面积",
+              "项目_未利用地面积",
+              "地块名称",
+              "地块编号",
+              "地块面积",
+              "地块用途",
+              "图幅号",
+              "界址点数",
+              "图形类型",
+              "批复文号",
+              "批复时间",
+              "办理标识",
+              "入库时间",
+              "是否报部",
+              "备注"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff808081738f93170173b77f0e88001c",
+            "layerid": 0,
+            "fileds": [
+              "地块ID",
+              "地块名称",
+              "地块面积(公顷)",
+              "项目ID",
+              "项目名称",
+              "项目类型",
+              "计划项目编号",
+              "验收项目编号",
+              "所在行政区名称",
+              "所在行政区代码",
+              "验收单位",
+              "验收文号",
+              "验收日期",
+              "实际总投资(万元)",
+              "实际建设总规模(公顷)",
+              "新增耕地面积(公顷)",
+              "SHAPE",
+              "年度",
+              "项目阶段",
+              "入库时间",
+              "行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff808081738f9317017392fd01fa0000",
+            "layerid": 0,
+            "fileds": [
+              "管制区类型代码",
+              "管制区面积",
+              "说明",
+              "行政区代码",
+              "分区行政区代码",
+              "更新时间"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": [
+              {
+                "key": "管制区类型代码",
+                "label": "管制区类型代码",
+                "value": [
+                  {
+                    "key": "010",
+                    "value": "允许建设用地区"
+                  },
+                  {
+                    "key": "020",
+                    "value": "有条件建设用地区"
+                  },
+                  {
+                    "key": "030",
+                    "value": "限制建设用地区"
+                  },
+                  {
+                    "key": "040",
+                    "value": "禁止建设用地区"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "serverid": "ff808081738f9317017392fd03c30001",
+            "layerid": 0,
+            "fileds": [
+              "土地用途区类型代码",
+              "土地用途区编号",
+              "土地用途区面积",
+              "说明",
+              "行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817322c09101738dc2178a005b",
+            "layerid": 0,
+            "fileds": [
+              "项目名称",
+              "项目类型代码",
+              "建设性质代码",
+              "建设年限",
+              "用地总规模",
+              "新增建设用地",
+              "建设占用耕地",
+              "涉及村（镇）",
+              "描述",
+              "分区行政区代码",
+              "更新时间"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817322c09101738dc2178a005b",
+            "layerid": 1,
+            "fileds": [
+              "OBJECTID",
+              "标识码",
+              "要素代码",
+              "项目类型代码",
+              "项目名称",
+              "建设性质代码",
+              "建设年限",
+              "用地总规模",
+              "新增建设用地",
+              "建设占用耕地",
+              "描述",
+              "涉及村（镇）",
+              "SHAPE",
+              "分区行政区代码",
+              "SHAPE.LEN",
+              "更新时间"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817322c09101738dc2178a005b",
+            "layerid": 2,
+            "fileds": [
+              "OBJECTID",
+              "标识码",
+              "要素代码",
+              "项目类型代码",
+              "项目名称",
+              "建设性质代码",
+              "建设年限",
+              "用地总规模",
+              "新增建设用地",
+              "建设占用耕地",
+              "涉及县（区）",
+              "描述",
+              "行政区代码",
+              "SHAPE",
+              "分区行政区代码",
+              "SHAPE.AREA",
+              "SHAPE.LEN",
+              "更新时间"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817cb5f4ed017cca9abccf0fe6",
+            "realUrlss": "http://192.168.90.56:8090/iserver/services/map-GTPT/rest/maps/BPDK_2K",
+            "dataUrl": "http://192.168.2.148:30639/iserver/services/data-jsydxm/rest",
+            "datasetName": "glsj:bpdk_320000",
+            "openSwitch": true,
+            "layerid": "BPDK_320000@glsj",
+            "fileds": [
+              "SmID",
+              "报件ID",
+              "报件名称",
+              "地块ID",
+              "地块名称",
+              "项目ID",
+              "项目名称",
+              "项目类型"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          },
+          {
+            "serverid": "ff8080817e2ea3f9017e32623d550018",
+            "layerid": 0,
+            "fileds": [
+              "标识码",
+              "项目名称",
+              "项目类型代码",
+              "建设性质代码",
+              "建设年限",
+              "分区行政区代码"
+            ],
+            "isIdentify": true,
+            "buttons": [],
+            "popup": "",
+            "dictionary": []
+          }
+        ],
+        "popupType": "popup",
+        "connectAnalytic": true
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#f95596"
+    },
+    {
+      "id": "query",
+      "uri": "query",
+      "label": "信息查询",
+      "iconCls": "icon-f-search",
+      "config": {
+        "sdeQueryUrl": "http://192.168.1.46:9000/rest/sde/query",
+        "highLightStyle": {
+          "color": "red",
+          "fillColor": "#f0fa2e",
+          "fillOpacity": 0.5
+        },
+        "polygonStyle": {
+          "color": "red",
+          "fillColor": "#add2ff",
+          "fillOpacity": 0.5
+        },
+        "saveResult": false,
+        "queryConfig": {
+          "报批地块": [
+            {
+              "layerName": "报批地块320000",
+              "url": "http://192.168.2.197:9011/resp/ff8080817bed8ad4017c2b4bbacc00b3/ff8080817c157df4017c2b4bbabb0079/ags_rest",
+              "field": "PRONAME,PL_PL_ID,SB_SB_ID,PB_PB_ID,USAGE,UNIT_NAME,REGIONCODE,PCMC,APP_TYPE,ZYWLX,DIKUAI_AREA,PZWH,PZRQ,PZJG,XMZT,DKNAME,TJMC,RKSJ,TJDM,TJND,XZQDM",
+              "condition": [
+                {
+                  "报件名称": [
+                    "String",
+                    "split",
+                    "PCMC"
+                  ]
+                },
+                {
+                  "项目名称": [
+                    "String",
+                    "split",
+                    "PRONAME"
+                  ]
+                },
+                {
+                  "项目类型": [
+                    "String",
+                    "split",
+                    "APP_TYPE"
+                  ]
+                },
+                {
+                  "批复文号": [
+                    "String",
+                    "split",
+                    "PZWH"
+                  ]
+                },
+                {
+                  "批复日期": [
+                    "date",
+                    "split",
+                    "PZRQ"
+                  ]
+                }
+              ],
+              "filters": [
+                [
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "buttons": [],
+              "display": true,
+              "dictionary": []
+            },
+            {
+              "layerName": "城市建设用地320000",
+              "url": "http://192.168.1.46:9011/resp/ff8080817322c09101738f19a06c006e/ff8080817360e78401738f19328d0452/ags_rest/1",
+              "field": "DKNAME,PL_ID,SB_ID,YDQK_SEC,GWYPF_SEC,PRONAME,USAGE,UNIT_NAME,REGIONCODE,APP_TYPE,ZYWLX,DIKUAI_AREA,PZWH,PCMC,PZRQ,PZJG,XMZT,RKSJ,XZQDM",
+              "condition": [
+                {
+                  "报件名称": [
+                    "String",
+                    "split",
+                    "PCMC"
+                  ]
+                },
+                {
+                  "项目名称": [
+                    "String",
+                    "split",
+                    "PRONAME"
+                  ]
+                },
+                {
+                  "项目类型": [
+                    "String",
+                    "split",
+                    "APP_TYPE"
+                  ]
+                },
+                {
+                  "批复文号": [
+                    "String",
+                    "split",
+                    "PZWH"
+                  ]
+                },
+                {
+                  "批复日期": [
+                    "date",
+                    "split",
+                    "PZRQ"
+                  ]
+                }
+              ],
+              "filters": [
+                [
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "buttons": [],
+              "display": true,
+              "dictionary": []
+            }
+          ],
+          "供地地块": [
+            {
+              "layerName": "供地地块320000",
+              "url": "http://192.168.1.46:9011/resp/ff80808173c1ba1a0173dc94e78a0017/ff8080817360e78401738f1932ab0458/ags_rest/0",
+              "field": "DKMC,DKBH,ZD_GUID,DKMJ,DKYT,GD_GUID,XZQ_DM,BH,XM_MC,TD_JB,TD_ZL,GY_MJ,GY_FS,TD_YT,JE,DG_SJ,PZ_WH,PZ_RQ,LAND_USER,JZDSX_GUID,DZ_BA_BH,GD_ZMJ,PC_MJ,CR_NX,CJ_PRICE,MIN_RJL,MAX_RJL,JD_SJ,JG_SJ,SJ_JD_SJ,SJ_DG_SJ,SJ_JG_SJ,KFJS_QX,QD_RQ,XM_ZT,RKSJ,XZQDM",
+              "condition": [
+                {
+                  "地块名称": [
+                    "String",
+                    "split",
+                    "DKMC"
+                  ]
+                },
+                {
+                  "地块用途": [
+                    "String",
+                    "split",
+                    "DKYT"
+                  ]
+                },
+                {
+                  "土地供应方式": [
+                    "String",
+                    "split",
+                    "GY_FS"
+                  ]
+                },
+                {
+                  "批准文号": [
+                    "String",
+                    "split",
+                    "PZ_WH"
+                  ]
+                },
+                {
+                  "批准日期": [
+                    "date",
+                    "split",
+                    "PZ_RQ"
+                  ]
+                }
+              ],
+              "filters": [
+                [
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "buttons": [],
+              "display": true,
+              "dictionary": []
+            }
+          ],
+          "预审地块": [
+            {
+              "layerName": "YSDK_320000",
+              "url": "http://192.168.1.46:9011/resp/ff8080817322c09101738f240b53007a/ff8080817360e78401738f1932e50464/ags_rest/0",
+              "field": "DKMC,DKID,XZQDM,XMMC,JSXM_TZDW_XM,NSP_JSXMJG,PZLX,HYFL,YS_XM_GHYJ,XM_AREA,XM_NYD_AREA,XM_NYD_GD_AREA,XM_NYD_JBNT_AREA,XM_JSYD_AREA,XM_WLYD_AREA,PL_NAME,DIKUAI_NO,DIKUAI_AREA,PURPOSE,MAP_NO,PNT_COUNT,SHAPE_TYPE,PZWH,PZRQ,XMZT,RKSJ,SFBB,BZ",
+              "condition": [
+                {
+                  "地块名称": [
+                    "String",
+                    "split",
+                    "DKMC"
+                  ]
+                },
+                {
+                  "建设项目名称": [
+                    "String",
+                    "split",
+                    "XMMC"
+                  ]
+                },
+                {
+                  "建设项目投资单位": [
+                    "String",
+                    "split",
+                    "JSXM_TZDW_XM"
+                  ]
+                },
+                {
+                  "办理标识": [
+                    "String",
+                    "split",
+                    "XMZT"
+                  ]
+                }
+              ],
+              "filters": [
+                [
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "buttons": [],
+              "display": true,
+              "dictionary": []
+            }
+          ],
+          "超图-报批地块": [
+            {
+              "layerName": "城市建设用地320000",
+              "url": "http://192.168.0.36:9011/resp/ff8080817af4e0b3017b059f39f60046/ff8080817b045a03017b05af45700042/spm_rest",
+              "layerId": "CSJSYD_320000@glsj",
+              "dataUrl": "http://192.168.2.148:30639/iserver/services/data-jsydxm/rest",
+              "mappingUrl": "http://192.168.2.148:30639/iserver/services/data-jsydxm/rest/data",
+              "datasetName": "glsj:bpdk_320000",
+              "field": "PL_ID,SB_ID,JSXM_SEC,YDQK_SEC,GWYPF_SEC,DKNAME,PRONAME,USAGE,UNIT_NAME,REGIONCODE,APP_TYPE,ZYWLX,DIKUAI_AREA,PZWH,PZRQ,PZJG,XMZT,PCMC,SHAPE,RKSJ,XZQDM",
+              "condition": [
+                {
+                  "项目名称": [
+                    "String",
+                    "split",
+                    "PRONAME"
+                  ]
+                },
+                {
+                  "报件名称": [
+                    "String",
+                    "split",
+                    "PCMC"
+                  ]
+                },
+                {
+                  "批复文号": [
+                    "String",
+                    "split",
+                    "PZWH"
+                  ]
+                }
+              ],
+              "filters": [
+                [
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "buttons": [],
+              "display": true,
+              "dictionary": []
+            }
+          ]
+        },
+        "popupType": "popup",
+        "connectAnalytic": true
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#3dd9a4"
+    },
+    {
+      "id": "analytic",
+      "uri": "analytic",
+      "label": "分析统计",
+      "iconCls": "icon-f-analysis",
+      "config": {
+        "defaultCrs": 4490,
+        "defaultRegionCode": "320010",
+        "analyticType": [
+          {
+            "label": "省厅-新三调现状分析",
+            "useable": true,
+            "display": true,
+            "hideDetail": false,
+            "isRequestBody": false,
+            "config": {
+              "groupField": "要素代码",
+              "titleField": "OBJECTID",
+              "layerName": "地类图斑2016",
+              "params": {
+                "geometry": "",
+                "dataSource": "GH_TDGH",
+                "isGeodesicArea": false,
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "ifStatic": true
+              },
+              "url": "http://192.168.2.197:9016/gis/analysis/newSDXZ2",
+              "returnField": "要素代码"
+            },
+            "years": [
+              {
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "label": "2019年",
+                "value": "2019"
+              },
+              {
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "label": "2020年",
+                "value": "2020"
+              }
+            ],
+            "value": "newsdxz"
+          },
+          {
+            "label": "业务-新三调现状分析",
+            "useable": true,
+            "display": true,
+            "hideDetail": false,
+            "config": {
+              "groupField": "要素代码",
+              "titleField": "OBJECTID",
+              "layerName": "地类图斑2016",
+              "params": {
+                "geometry": "",
+                "dataSource": "GH_TDGH",
+                "isGeodesicArea": false,
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "ifStatic": true,
+                "isApprovalStandard": true
+              },
+              "url": "/map/rest/analysis/newsdxz",
+              "returnField": "要素代码"
+            },
+            "years": [
+              {
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "label": "2019年",
+                "value": "2019"
+              },
+              {
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "label": "2020年",
+                "value": "2020"
+              }
+            ],
+            "value": "newsdxzBiz"
+          },
+          {
+            "label": "省厅新三调现状分析(地块)",
+            "useable": true,
+            "display": true,
+            "hideDetail": false,
+            "config": {
+              "groupField": "要素代码",
+              "titleField": "OBJECTID",
+              "layerName": "地类图斑2016",
+              "params": {
+                "geometry": "",
+                "dataSource": "GH_TDGH",
+                "isGeodesicArea": false,
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "ifStatic": true
+              },
+              "url": "/map/rest/analysis/newsdxz",
+              "returnField": "要素代码"
+            },
+            "years": [
+              {
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "label": "2019年",
+                "value": "2019"
+              },
+              {
+                "dltb": "DLTB_320505",
+                "scope20": "CZCDYD_320505",
+                "label": "2020年",
+                "value": "2020"
+              }
+            ],
+            "areaNameKeys": [
+              "DKNAME",
+              "PL_NAME",
+              "KSMC",
+              "NAME",
+              "DKMC"
+            ],
+            "value": "newsdxzByMassif"
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/tdlyxz",
+              "params": {
+                "year": "2016",
+                "dataSource": "XZ_TDDC",
+                "geometry": ""
+              },
+              "layerName": "地类图斑2016",
+              "titleField": "OBJECTID",
+              "returnField": "要素代码",
+              "groupField": "要素代码",
+              "crsType": 0,
+              "exportShpUrl": "/map/rest/analysis/dowmLoadXZShp",
+              "showShpBtn": true
+            },
+            "label": "土地利用现状分析（省厅分析逻辑）",
+            "value": "tdlyxz",
+            "years": [
+              {
+                "label": "2011年",
+                "value": "2011",
+                "dltb": "DLTB_H_2011",
+                "xzdw": "XZDW_H_2011"
+              },
+              {
+                "label": "2009年",
+                "value": "2009",
+                "dltb": "DLTB_H_2009",
+                "xzdw": "XZDW_H_2009"
+              }
+            ],
+            "display": true,
+            "useable": true,
+            "hideDetail": false,
+            "showGroupByQsxz": true,
+            "hasTFH": false,
+            "isST": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/sdxz",
+              "params": {
+                "year": "2016",
+                "dataSource": "XZ_SDSJ",
+                "geometry": ""
+              },
+              "layerName": "地类图斑2016",
+              "titleField": "OBJECTID",
+              "returnField": "要素代码",
+              "groupField": "要素代码"
+            },
+            "label": "三调现状",
+            "value": "sdxz",
+            "years": [
+              {
+                "label": "2019年",
+                "value": "2019",
+                "dltb": "DLTB_1"
+              }
+            ],
+            "display": true,
+            "useable": true,
+            "hideDetail": false,
+            "isST": false
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/tdlyxz",
+              "params": {
+                "year": "2016",
+                "dataSource": "XZ_TDDC",
+                "geometry": ""
+              },
+              "layerName": "地类图斑2016",
+              "titleField": "OBJECTID",
+              "returnField": "要素代码",
+              "groupField": "要素代码"
+            },
+            "label": "土地利用现状分析（连云港）",
+            "value": "tdlyxzlyg",
+            "dltbTolerance": 0,
+            "years": [
+              {
+                "label": "2011年",
+                "value": "",
+                "dltb": "DLTB_H_2011",
+                "xzdw": "XZDW_H_2011"
+              },
+              {
+                "label": "2009年",
+                "value": "",
+                "dltb": "DLTB_H_2009",
+                "xzdw": "XZDW_H_2009"
+              }
+            ],
+            "display": true,
+            "useable": true,
+            "hideDetail": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/tdghsc",
+              "params": {
+                "year": "2020",
+                "dataSource": "GH_TDGH",
+                "geometry": ""
+              },
+              "fuzzyMatch": false,
+              "exportShpParams": [
+                {
+                  "parentKey": "土地用途分区",
+                  "codes": [
+                    "030",
+                    "090"
+                  ]
+                },
+                {
+                  "parentKey": "建设用地管制区",
+                  "codes": [
+                    "030"
+                  ]
+                }
+              ]
+            },
+            "label": "土地规划审查分析",
+            "years": [
+              {
+                "label": "2020年",
+                "value": "2020"
+              },
+              {
+                "label": "2009年",
+                "value": "2009"
+              }
+            ],
+            "value": "tdghsc",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/tdghsc",
+              "params": {
+                "year": "2020",
+                "dataSource": "GH_TDGH",
+                "geometry": ""
+              }
+            },
+            "label": "土地规划审查分析(地块)",
+            "years": [
+              {
+                "label": "2020年",
+                "value": "2020"
+              },
+              {
+                "label": "2009年",
+                "value": "2009"
+              }
+            ],
+            "value": "tdghscByMassif",
+            "areaNameKeys": [
+              "DKNAME",
+              "PL_NAME",
+              "KSMC",
+              "NAME",
+              "DKMC"
+            ],
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/intersect",
+              "params": {
+                "layerName": "BPDK_320000",
+                "dataSource": "GL_GLSJ",
+                "geometry": "",
+                "outFields": "*"
+              }
+            },
+            "label": "报批重叠检查分析",
+            "value": "bpcdjc",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/tdghsc",
+              "params": {
+                "layerType": "JSYDGZQ",
+                "dataSource": "GH_TDGH",
+                "year": "2020",
+                "geometry": "",
+                "outFields": "*"
+              }
+            },
+            "label": "建设用地管制区分析",
+            "value": "jsydgzqfx",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/joint",
+              "params": {
+                "layerName": "BPDK_320000",
+                "dataSource": "GL_GLSJ",
+                "geometry": "",
+                "outFields": "*"
+              },
+              "returnFields": [
+                {
+                  "name": "PCMC",
+                  "type": "esriFieldTypeString",
+                  "alias": "批次名称"
+                },
+                {
+                  "name": "PRONAME",
+                  "type": "esriFieldTypeString",
+                  "alias": "项目名称"
+                },
+                {
+                  "name": "DKNAME",
+                  "type": "esriFieldTypeString",
+                  "alias": "地块名称"
+                }
+              ]
+            },
+            "label": "农村建设用地调查-房屋分析",
+            "value": "ncjsyddcfw",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/yjjbntzySD",
+              "params": {
+                "layerName": "YJJBNTBHTB",
+                "dataSource": "XZ_TDDC",
+                "geometry": ""
+              }
+            },
+            "label": "永久基本农田占用分析",
+            "value": "yjjbntzy",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/yjjbntbh",
+              "params": {
+                "year": "2016",
+                "dataSource": "XZ_TDDC",
+                "geometry": ""
+              },
+              "layerName": "地类图斑2016",
+              "titleField": "OBJECTID",
+              "returnField": "要素代码",
+              "groupField": "要素代码"
+            },
+            "label": "永久基本农田补划分析",
+            "value": "yjjbntbh",
+            "years": [
+              {
+                "label": "2011年",
+                "value": "2011",
+                "dltb": "DLTB_H_2011",
+                "xzdw": "XZDW_H_2011"
+              },
+              {
+                "label": "2009年",
+                "value": "2009",
+                "dltb": "DLTB_H_2009",
+                "xzdw": "XZDW_H_2009"
+              }
+            ],
+            "display": true,
+            "useable": true,
+            "hideDetail": false,
+            "isST": false
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/yjjbntbh",
+              "params": {
+                "year": "2016",
+                "dataSource": "XZ_TDDC",
+                "geometry": ""
+              },
+              "layerName": "地类图斑2016",
+              "titleField": "OBJECTID",
+              "returnField": "要素代码",
+              "groupField": "要素代码"
+            },
+            "label": "永久基本农田补划分析（地块）",
+            "value": "yjjbntbhByMassif",
+            "years": [
+              {
+                "label": "2011年",
+                "value": "2011",
+                "dltb": "DLTB_H_2011",
+                "xzdw": "XZDW_H_2011"
+              },
+              {
+                "label": "2009年",
+                "value": "2009",
+                "dltb": "DLTB_H_2009",
+                "xzdw": "XZDW_H_2009"
+              }
+            ],
+            "display": true,
+            "useable": true,
+            "hideDetail": false,
+            "isST": false
+          },
+          {
+            "config": {
+              "url": "http://192.168.2.197:9016/gis/analysis/multiSimple2"
+            },
+            "label": "测绘成果目录分析统计",
+            "value": "chcgmltj",
+            "display": true,
+            "useable": true,
+            "types": [
+              {
+                "id": "test1",
+                "label": "测试1",
+                "layers": [
+                  {
+                    "label": "生态红线1",
+                    "layer": "BPDK_320000",
+                    "dataSource": "GL_GLSJ"
+                  },
+                  {
+                    "label": "生态红线2",
+                    "layer": "BPDK_320000",
+                    "dataSource": "GL_GLSJ"
+                  },
+                  {
+                    "label": "生态红线3",
+                    "layer": "GDDK_320000",
+                    "dataSource": "GL_GLSJ"
+                  }
+                ]
+              },
+              {
+                "id": "test2",
+                "label": "测试2",
+                "layers": [
+                  {
+                    "label": "农田1",
+                    "layer": "BPDK_320000",
+                    "dataSource": "GL_GLSJ"
+                  },
+                  {
+                    "label": "农田2",
+                    "layer": "BPDK_320000",
+                    "dataSource": "GL_GLSJ"
+                  },
+                  {
+                    "label": "农田3",
+                    "layer": "BPDK_320000",
+                    "dataSource": "GL_GLSJ"
+                  }
+                ]
+              }
+            ],
+            "outFields": "PL_PL_ID,SB_SB_ID,PB_PB_ID",
+            "showIntersect": "123,345,主体功能区"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "BPDK_320000",
+                    "returnFields": [
+                      {
+                        "name": "PRONAME",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目名称",
+                        "length": 200,
+                        "domain": null
+                      },
+                      {
+                        "name": "USAGE",
+                        "type": "esriFieldTypeString",
+                        "alias": "地块用途",
+                        "length": 100,
+                        "domain": null
+                      },
+                      {
+                        "name": "PZRQ",
+                        "type": "esriFieldTypeDate",
+                        "alias": "批复日期",
+                        "length": 36,
+                        "domain": null
+                      }
+                    ],
+                    "returnFieldStrs": [
+                      "项目名称",
+                      "地块用途",
+                      "批复日期"
+                    ],
+                    "params": {
+                      "geometry": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "dataSource": "GL_GLSJ",
+                    "statusField": "XMZT",
+                    "statusValue": 1
+                  },
+                  "label": "已报批",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "GDDK_320000",
+                    "params": {
+                      "exportable": "",
+                      "数据类型": "",
+                      "geometry": "",
+                      "导入类型": "",
+                      "链接": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "returnFields": [
+                      {
+                        "name": "DKMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "地块名称",
+                        "length": 150,
+                        "domain": null
+                      },
+                      {
+                        "name": "DKYT",
+                        "type": "esriFieldTypeString",
+                        "alias": "地块用途",
+                        "length": 50,
+                        "domain": null
+                      },
+                      {
+                        "name": "GD_GUID",
+                        "type": "esriFieldTypeString",
+                        "alias": "供地ID",
+                        "length": 50,
+                        "domain": null
+                      }
+                    ],
+                    "returnFieldStrs": [
+                      "地块名称",
+                      "地块用途",
+                      "供地ID"
+                    ],
+                    "dataSource": "GL_GLSJ"
+                  },
+                  "label": "已供地",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "BPDK_320000",
+                    "params": {
+                      "exportable": "",
+                      "数据类型": "",
+                      "geometry": "",
+                      "导入类型": "",
+                      "链接": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "returnFields": [
+                      {
+                        "name": "PCMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "报件名称",
+                        "length": 255,
+                        "domain": null
+                      },
+                      {
+                        "name": "APP_TYPE",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目类型",
+                        "length": 20,
+                        "domain": null
+                      },
+                      {
+                        "name": "RKSJ",
+                        "type": "esriFieldTypeDate",
+                        "alias": "入库时间",
+                        "length": 36,
+                        "domain": null
+                      },
+                      {
+                        "name": "PZJG",
+                        "type": "esriFieldTypeString",
+                        "alias": "批准机关",
+                        "length": 20,
+                        "domain": null
+                      }
+                    ],
+                    "returnFieldStrs": [
+                      "报件名称",
+                      "项目类型",
+                      "入库时间",
+                      "批准机关"
+                    ],
+                    "dataSource": "GL_GLSJ"
+                  },
+                  "label": "已发证",
+                  "value": "base"
+                }
+              ],
+              "url": "/map/rest/analysis/ydqk"
+            },
+            "label": "用地情况分析",
+            "value": "ydqkfx",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/ssnydfx",
+              "params": {
+                "layerName": "地类图斑2016",
+                "dltb": "DLTB_H_2009",
+                "dataSource": "XZ_TDDC",
+                "years": [
+                  {
+                    "label": "2009年",
+                    "value": "2009",
+                    "dltb": "DLTB_H_2009",
+                    "xzdw": "XZDW_H_2009",
+                    "selected": true
+                  },
+                  {
+                    "label": "2010年",
+                    "value": "2010",
+                    "dltb": "DLTB_H_2009",
+                    "xzdw": "XZDW_H_2009",
+                    "selected": false
+                  },
+                  {
+                    "label": "2011年",
+                    "value": "2011",
+                    "dltb": "DLTB_H_2011",
+                    "xzdw": "XZDW_H_2011",
+                    "selected": false
+                  },
+                  {
+                    "label": "2012年",
+                    "value": "2012",
+                    "dltb": "DLTB_H_2011",
+                    "xzdw": "XZDW_H_2011",
+                    "selected": false
+                  },
+                  {
+                    "label": "2013年",
+                    "value": "2013",
+                    "dltb": "DLTB_H_2011",
+                    "xzdw": "XZDW_H_2011",
+                    "selected": false
+                  },
+                  {
+                    "label": "2014年",
+                    "value": "2014",
+                    "dltb": "DLTB_H_2011",
+                    "xzdw": "XZDW_H_2011",
+                    "selected": false
+                  },
+                  {
+                    "label": "2015年",
+                    "value": "2015",
+                    "dltb": "DLTB_H_2015",
+                    "xzdw": "XZDW_H_2015",
+                    "selected": false
+                  },
+                  {
+                    "label": "2016年",
+                    "value": "2016",
+                    "dltb": "DLTB_H_2016",
+                    "xzdw": "XZDW_H_2016",
+                    "selected": false
+                  },
+                  {
+                    "label": "2017年",
+                    "value": "2017",
+                    "dltb": "DLTB_H_2011",
+                    "xzdw": "XZDW_H_2011",
+                    "selected": false
+                  }
+                ],
+                "showST": true
+              }
+            },
+            "label": "设施农用地分析",
+            "value": "ssnydfx",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "http://192.168.2.197:9016/gis/analysis/centerAnalysis",
+              "params": {
+                "dataSource": "GH_TDGH",
+                "geometry": "",
+                "analysisLayers": [
+                  {
+                    "fid": "ckq",
+                    "fields": "*",
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "title": "压覆矿分析"
+                  },
+                  {
+                    "fid": "tkq",
+                    "fields": "*",
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "title": "压覆矿分析"
+                  }
+                ]
+              }
+            },
+            "label": "压覆矿分析",
+            "value": "yfkfx",
+            "display": true,
+            "useable": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/tdlyxz",
+              "params": {
+                "year": "2016",
+                "dataSource": "XZ_TDDC",
+                "geometry": ""
+              },
+              "layerName": "地类图斑2016",
+              "titleField": "OBJECTID",
+              "returnField": "要素代码",
+              "groupField": "要素代码"
+            },
+            "label": "土地利用现状分析（地块）",
+            "value": "tdlyxzByMassif",
+            "years": [
+              {
+                "label": "2011年",
+                "value": "2011",
+                "dltb": "DLTB_H_2011",
+                "xzdw": "XZDW_H_2011"
+              },
+              {
+                "label": "2009年",
+                "value": "2009",
+                "dltb": "DLTB_H_2009",
+                "xzdw": "XZDW_H_2009"
+              }
+            ],
+            "areaNameKeys": [
+              "DKNAME",
+              "PL_NAME",
+              "KSMC",
+              "NAME",
+              "DKMC"
+            ],
+            "regionCodeKeys": [
+              "XZQDM",
+              "REGIONCODE",
+              "TJDM"
+            ],
+            "display": true,
+            "useable": true,
+            "hideDetail": false,
+            "showGroupByQsxz": true,
+            "hasTFH": false,
+            "isST": true,
+            "showAttrSelectBtn": true
+          },
+          {
+            "config": {
+              "url": "/map/rest/analysis/sdxz",
+              "params": {
+                "year": "2016",
+                "dataSource": "XZ_SDSJ",
+                "geometry": ""
+              },
+              "layerName": "地类图斑2016",
+              "titleField": "OBJECTID",
+              "returnField": "要素代码",
+              "groupField": "要素代码"
+            },
+            "label": "三调现状分析(地块)",
+            "value": "sdxzByMassif",
+            "years": [
+              {
+                "label": "2019年",
+                "value": "2019",
+                "dltb": "DLTB_1"
+              }
+            ],
+            "areaNameKeys": [
+              "DKNAME",
+              "PL_NAME",
+              "KSMC",
+              "NAME",
+              "DKMC"
+            ],
+            "display": true,
+            "useable": true,
+            "hideDetail": false
+          },
+          {
+            "label": "三调集体建设用地报批地类认定审查分析",
+            "value": "bpdlrdscBySD",
+            "config": {
+              "exportShpUrl": "/map/rest/analysis/geoJson2AnyFile",
+              "showShpBtn": true,
+              "url": "/map/rest/analysis/sdJsydBpscAnalysis",
+              "params": {
+                "scope20": {
+                  "dataSource": "GL_GLSJ",
+                  "layerName": "CZCDYD_2020"
+                },
+                "geometry": "",
+                "outFields": "*"
+              }
+            },
+            "years": [
+              {
+                "layer": {
+                  "dataSource": "GL_GLSJ",
+                  "dltb": "DLTB_H_2020"
+                },
+                "scope20": {
+                  "dataSource": "GL_GLSJ",
+                  "layerName": "CZCDYD_2020"
+                },
+                "label": "2011年",
+                "value": "2011"
+              },
+              {
+                "layer": {
+                  "dataSource": "GL_GLSJ",
+                  "dltb": "DLTB_H_2020"
+                },
+                "scope20": {
+                  "dataSource": "GL_GLSJ",
+                  "layerName": "CZCDYD_2020"
+                },
+                "label": "2009年",
+                "value": "2009"
+              }
+            ],
+            "useable": true,
+            "display": true
+          },
+          {
+            "label": "报批地类认定审查分析",
+            "value": "bpdlrdsc",
+            "config": {
+              "exportShpUrl": "/map/rest/analysis/geoJson2AnyFile",
+              "showShpBtn": true,
+              "params": {
+                "firstLand": {
+                  "dataSource": "GL_GLSJ",
+                  "layerName": "YDSJ"
+                },
+                "secondLand": {
+                  "dataSource": "XZ_TDDC",
+                  "dltb": "DLTB_H_2009"
+                },
+                "thirdLand": {
+                  "dataSource": "XZ_SDSJ",
+                  "dltb": "DLTB_1"
+                },
+                "layers": [
+                  {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ"
+                  }
+                ],
+                "scope20": {
+                  "layerName": "CZCDYD_2020",
+                  "dataSource": "GL_GLSJ"
+                }
+              },
+              "url": "/map/rest/analysis/bpdlrdscAnalysis"
+            },
+            "useable": true,
+            "display": true
+          },
+          {
+            "label": "三调非建设用地报批审查分析",
+            "value": "sdfjsydbpsc",
+            "config": {
+              "exportShpUrl": "/map/rest/analysis/geoJson2AnyFile",
+              "showShpBtn": true,
+              "params": {
+                "layers": [
+                  {
+                    "layerName": "LNGGTC",
+                    "dataSource": "GL_GLSJ"
+                  }
+                ],
+                "thirdLand": {
+                  "dataSource": "GL_GLSJ",
+                  "dltb": "DLTB_H_2020"
+                },
+                "scope20": {
+                  "layerName": "CZCDYD_2020",
+                  "dataSource": "GL_GLSJ"
+                }
+              },
+              "url": "/map/rest/analysis/sdFJsydBpscAnalysis"
+            },
+            "useable": true,
+            "display": true
+          }
+        ],
+        "nameFields": "XMMC",
+        "uploadPolygonToLine": false,
+        "uploadFileChoose": true
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#fda03d"
+    },
+    {
+      "id": "search",
+      "uri": "search",
+      "label": "智能检索",
+      "iconCls": "icon-f-select-list",
+      "config": {
+        "polygonStyle": {
+          "color": "red",
+          "fillColor": "#add2ff",
+          "fillOpacity": 0.5
+        },
+        "highLightStyle": {
+          "color": "red",
+          "fillColor": "#f0fa2e",
+          "fillOpacity": 0.5
+        },
+        "saveResult": false,
+        "esUrl": "local",
+        "returnFields": {
+          "TITLE": "行政区名称",
+          "XZQDM": "行政区代码"
+        },
+        "url": "",
+        "label": "搜索范围",
+        "id": "searchConfig",
+        "col": 3,
+        "children": [
+          {
+            "label": "行政区",
+            "icon": "icon-f-adminis",
+            "id": "region",
+            "useRegionCode": true,
+            "style": {
+              "color": "#2a8aff",
+              "width": "22%",
+              "padding": "5px",
+              "margin": "3px 10px"
+            },
+            "children": [
+              {
+                "description": "市级行政区划",
+                "id": "ys_xzq_c_2018",
+                "label": "市级行政区划_2017",
+                "checked": true
+              },
+              {
+                "description": "村级行政区划",
+                "id": "ys_xzq_d_2018",
+                "label": "村级行政区划_2017",
+                "checked": true
+              },
+              {
+                "description": "县级行政区划",
+                "id": "ys_xzq_e_2018",
+                "label": "县级行政区划_2017",
+                "checked": true
+              },
+              {
+                "description": "乡镇级行政区划_2017",
+                "id": "ys_xzq_f_2018",
+                "label": "乡镇级行政区划_2017",
+                "checked": true
+              }
+            ],
+            "checked": true
+          }
+        ]
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#8153ce"
+    },
+    {
+      "id": "searchservice",
+      "uri": "searchservice",
+      "label": "智能检索(新)",
+      "iconCls": "icon-f-select-list",
+      "config": {
+        "polygonStyle": {
+          "color": "red",
+          "fillColor": "#add2ff",
+          "fillOpacity": 0.5
+        },
+        "highLightStyle": {
+          "color": "red",
+          "fillColor": "#f0fa2e",
+          "fillOpacity": 0.5
+        },
+        "saveResult": false,
+        "esUrl": "local",
+        "returnFields": {
+          "TITLE": "行政区名称",
+          "XZQDM": "行政区代码"
+        },
+        "url": "",
+        "label": "搜索范围",
+        "id": "searchConfig",
+        "col": 3,
+        "children": [
+          {
+            "label": "行政区",
+            "icon": "icon-f-adminis",
+            "id": "region",
+            "useRegionCode": true,
+            "style": {
+              "color": "#2a8aff",
+              "width": "22%",
+              "padding": "5px",
+              "margin": "3px 10px"
+            },
+            "children": [
+              {
+                "description": "市级行政区划",
+                "id": "ys_xzq_c_2018",
+                "label": "市级行政区划_2017",
+                "checked": true
+              },
+              {
+                "description": "村级行政区划",
+                "id": "ys_xzq_d_2018",
+                "label": "村级行政区划_2017",
+                "checked": true
+              },
+              {
+                "description": "县级行政区划",
+                "id": "ys_xzq_e_2018",
+                "label": "县级行政区划_2017",
+                "checked": true
+              },
+              {
+                "description": "乡镇级行政区划_2017",
+                "id": "ys_xzq_f_2018",
+                "label": "乡镇级行政区划_2017",
+                "checked": true
+              }
+            ],
+            "checked": true
+          },
+          {
+            "label": "水系",
+            "icon": "icon-f-rivers",
+            "id": "river",
+            "useRegionCode": false,
+            "style": {
+              "color": "#fc4d24",
+              "width": "38%",
+              "padding": "5px",
+              "margin": "3px 10px"
+            },
+            "children": [
+              {
+                "description": "省级线状水系",
+                "id": "raw_xzsx_b_2015_2k",
+                "label": "省级线状水系",
+                "checked": true
+              },
+              {
+                "description": "省级面状水系",
+                "id": "raw_mzsx_b_2015_2k",
+                "label": "省级面状水系",
+                "checked": true
+              }
+            ],
+            "checked": true
+          },
+          {
+            "label": "交通",
+            "icon": "icon-f-transport",
+            "id": "transport",
+            "useRegionCode": false,
+            "style": {
+              "color": "#fc4d24",
+              "width": "38%",
+              "padding": "5px",
+              "margin": "3px 10px"
+            },
+            "children": [
+              {
+                "description": "省级公路",
+                "id": "raw_golu_b_2015_2k",
+                "label": "省级公路",
+                "checked": true
+              },
+              {
+                "description": "省级铁路",
+                "id": "raw_tilu_b_2015_2k",
+                "label": "省级铁路",
+                "checked": true
+              }
+            ],
+            "checked": true
+          }
+        ]
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#8153ce"
+    },
+    {
+      "id": "dataretrieval",
+      "uri": "dataretrieval",
+      "label": "业务数据检索",
+      "iconCls": "icon-f-watch-later",
+      "config": {
+        "queryLayers": [
+          {
+            "layerName": "供地地块320000",
+            "url": "http://192.168.1.46:9011/resp/ff80808173c1ba1a0173dc94e78a0017/ff8080817360e78401738f1932ab0458/ags_rest/0",
+            "field": "DKMC,DKBH,ZD_GUID,DKMJ,DKYT,GD_GUID,XZQ_DM,BH,XM_MC,TD_JB,TD_ZL,GY_MJ,GY_FS,TD_YT,JE,DG_SJ,PZ_WH,PZ_RQ,LAND_USER,JZDSX_GUID,DZ_BA_BH,GD_ZMJ,PC_MJ,CR_NX,CJ_PRICE,MIN_RJL,MAX_RJL,JD_SJ,JG_SJ,SJ_JD_SJ,SJ_DG_SJ,SJ_JG_SJ,KFJS_QX,QD_RQ,XM_ZT,RKSJ,XZQDM",
+            "queryField": "DKMC,DKYT,GY_FS,PZ_WH",
+            "id": "ff8080817360e78401738f1932ab0458"
+          },
+          {
+            "layerName": "YSDK_320000",
+            "url": "http://192.168.1.46:9011/resp/ff8080817322c09101738f240b53007a/ff8080817360e78401738f1932e50464/ags_rest/0",
+            "field": "DKMC,DKID,XZQDM,XMMC,JSXM_TZDW_XM,NSP_JSXMJG,PZLX,HYFL,YS_XM_GHYJ,XM_AREA,XM_NYD_AREA,XM_NYD_GD_AREA,XM_NYD_JBNT_AREA,XM_JSYD_AREA,XM_WLYD_AREA,PL_NAME,DIKUAI_NO,DIKUAI_AREA,PURPOSE,MAP_NO,PNT_COUNT,SHAPE_TYPE,PZWH,PZRQ,XMZT,RKSJ,SFBB,BZ",
+            "queryField": "DKMC,XMMC,JSXM_TZDW_XM,XMZT",
+            "id": "ff8080817360e78401738f1932e50464"
+          },
+          {
+            "layerName": "报批地块320000",
+            "url": "http://192.168.1.46:9011/resp/ff8080817322c09101738f19a06c006e/ff8080817360e78401738f19328d0452/ags_rest/0",
+            "field": "PRONAME,PL_PL_ID,SB_SB_ID,PB_PB_ID,USAGE,UNIT_NAME,REGIONCODE,PCMC,APP_TYPE,ZYWLX,DIKUAI_AREA,PZWH,PZRQ,PZJG,XMZT,DKNAME,TJMC,RKSJ,TJDM,TJND,XZQDM",
+            "queryField": "PCMC,PRONAME,APP_TYPE,PZWH ",
+            "id": "ff8080817360e78401738f19328d0452"
+          },
+          {
+            "layerName": "超图动态",
+            "url": "http://192.168.1.46:9011/resp/ff808081799ce9440179e439ec720401/ff80808179d5d9050179e439ec4f00ea/spm_rest",
+            "field": "SmID,dkbh,DKMC",
+            "queryField": "SmID",
+            "id": "ff80808179d5d9050179e439ec4f00ea",
+            "layerId": "GDDK_320000@PT"
+          }
+        ],
+        "popupType": "popup",
+        "highLightStyle": {
+          "color": "red",
+          "fillColor": "#f0fa2e",
+          "fillOpacity": 0.5
+        },
+        "polygonStyle": {
+          "color": "red",
+          "fillColor": "#add2ff",
+          "fillOpacity": 0.5
+        }
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#1abb84"
+    },
+    {
+      "id": "location",
+      "uri": "location",
+      "label": "图形定位",
+      "iconCls": "icon-f-info",
+      "config": {
+        "layers": [
+          {
+            "layerId": 1,
+            "layerName": "空间单元320000",
+            "serviceId": "ff808081789114340178aa097229003b",
+            "showInfo": true,
+            "returnFields": [{
+              "name": "BSM"
+            }],
+            "url": "http://192.168.2.197:9011/resp/ff808081781f58980178aa0972450039/ff808081789114340178aa097229003b/ags_tile"
+          },
+          {
+            "layerId": 1,
+            "layerName": "报批地块320000",
+            "showInfo": true,
+            "returnFields": {},
+            "serviceId": "ff8080817360e78401738f19328d0452",
+            "url": "http://192.168.2.94:6080/arcgis/rest/services/JSYD/BPDK_2K/MapServer/0"
+          },
+          {
+            "layerId": 2,
+            "layerName": "YSDK_320000",
+            "showInfo": true,
+            "returnFields": [
+              {
+                "name": "DKMC",
+                "type": "esriFieldTypeString",
+                "alias": "地块名称",
+                "length": 200,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "XMMC",
+                "type": "esriFieldTypeString",
+                "alias": "建设项目名称",
+                "length": 100,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "JSXM_TZDW_XM",
+                "type": "esriFieldTypeString",
+                "alias": "建设项目投资单位",
+                "length": 100,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "NSP_JSXMJG",
+                "type": "esriFieldTypeString",
+                "alias": "拟审批（核准、备案）建设项目机关",
+                "length": 100,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "PZLX",
+                "type": "esriFieldTypeString",
+                "alias": "批准类型",
+                "length": 100,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "HYFL",
+                "type": "esriFieldTypeString",
+                "alias": "行业分类",
+                "length": 100,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "YS_XM_GHYJ",
+                "type": "esriFieldTypeString",
+                "alias": "预审项目_规划依据",
+                "length": 200,
+                "domain": null,
+                "display": true
+              }
+            ],
+            "serviceId": "ff808081781f58980178b08d33b70041",
+            "url": "http://192.168.2.94:6080/arcgis/rest/services/JSYD/YSDK_2K/MapServer/0"
+          },
+          {
+            "layerId": 3,
+            "layerName": "TDZZSC",
+            "showInfo": true,
+            "returnFields": [
+              {
+                "name": "DKID",
+                "type": "esriFieldTypeString",
+                "alias": "地块ID",
+                "length": 50,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "DKMC",
+                "type": "esriFieldTypeString",
+                "alias": "地块名称",
+                "length": 50,
+                "domain": null,
+                "display": true
+              },
+              {
+                "name": "XZQDM",
+                "type": "esriFieldTypeString",
+                "alias": "行政区代码",
+                "length": 50,
+                "domain": null,
+                "display": true
+              }
+            ],
+            "serviceId": "ff8080817b7771ee017b80ffea08000b",
+            "url": "http://192.168.0.36:9011/resp/ff8080817b4c5b55017b80ef5df80024/ff8080817b7771ee017b80ffea08000b/ags_rest/0"
+          }
+        ]
+      },
+      "display": false,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "compare",
+      "uri": "compare",
+      "label": "地图对比",
+      "iconCls": "icon-f-compare",
+      "config": {
+        "maps": []
+      },
+      "display": false,
+      "weight": 0,
+      "color": "#20aefa"
+    },
+    {
+      "id": "specialtheme",
+      "uri": "specialtheme",
+      "label": "智能审图",
+      "iconCls": "icon-f-analysis-info",
+      "config": {
+        "analyticType": [
+          {
+            "label": "规划图形审查分析",
+            "value": "ghtxsc",
+            "config": {
+              "types": [
+                {
+                  "id": "tdlyxz",
+                  "layers": [
+                    {
+                      "year": "2020",
+                      "dataSource": "GH_TDGH",
+                      "dltb": "DLTB_320505",
+                      "scope20": "CZCDYD_320505"
+                    }
+                  ]
+                },
+                {
+                  "id": "stgkq",
+                  "layers": [
+                    {
+                      "id": "stgkq",
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ"
+                    },
+                    {
+                      "id": "gjjstbhhx",
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ"
+                    },
+                    {
+                      "id": "stkjgkq",
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ"
+                    }
+                  ]
+                },
+                {
+                  "id": "stbhhx",
+                  "layers": [
+                    {
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ"
+                    }
+                  ]
+                },
+                {
+                  "id": "yjjbnt",
+                  "layers": [
+                    {
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ"
+                    }
+                  ]
+                },
+                {
+                  "id": "czkfbj",
+                  "layers": [
+                    {
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ"
+                    }
+                  ]
+                },
+                {
+                  "id": "tdghsc",
+                  "layers": [
+                    {
+                      "year": "2020",
+                      "dataSource": "GH_TDGH"
+                    }
+                  ]
+                },
+                {
+                  "id": "bbfwx",
+                  "layers": [
+                    {
+                      "BBJ": {
+                        "layerName": "BPDK_320000",
+                        "dataSource": "GL_GLSJ"
+                      },
+                      "DLTB": [
+                        {
+                          "year": "2009",
+                          "layerName": "DLTB_H_2009",
+                          "dataSource": "XZ_TDDC"
+                        },
+                        {
+                          "year": "2020",
+                          "layerName": "DLTB_320505",
+                          "dataSource": "GH_TDGH",
+                          "scope20": "CZCDYD_320505"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "color": "#a7b750",
+            "icon": "icon-f-analysis-2"
+          },
+          {
+            "label": "永久基本农田分析",
+            "value": "basicFarm",
+            "config": {
+              "intersect": {
+                "url": "http://192.168.50.158:9016/gis/analysis/yjjbntzySD",
+                "params": {
+                  "layerName": "YJJBNTBHTB",
+                  "dataSource": "XZ_TDDC",
+                  "geometry": "",
+                  "outFields": "*",
+                  "returnFields": [
+                    {
+                      "name": "DLBM",
+                      "type": "esriFieldTypeString",
+                      "alias": "地类编码"
+                    },
+                    {
+                      "name": "DLMC",
+                      "type": "esriFieldTypeString",
+                      "alias": "地类名称"
+                    },
+                    {
+                      "name": "OG_SHAPE_AREA",
+                      "type": "esriFieldTypeDouble",
+                      "alias": "图斑面积"
+                    },
+                    {
+                      "name": "TBMJ",
+                      "type": "esriFieldTypeDouble",
+                      "alias": "图斑地类面积"
+                    },
+                    {
+                      "name": "SHAPE_AREA",
+                      "type": "esriFieldTypeDouble",
+                      "alias": "重叠面积"
+                    },
+                    {
+                      "name": "calArea",
+                      "type": "esriFieldTypeDouble",
+                      "alias": "占用面积"
+                    }
+                  ]
+                },
+                "year": "2017"
+              }
+            },
+            "isRequestBody": true,
+            "color": "#a7b750",
+            "icon": "icon-f-analysis-2"
+          },
+          {
+            "config": {
+              "tdlyxz": {
+                "url": "/map/rest/analysis/multiCadastre",
+                "params": {
+                  "years": [
+                    {
+                      "label": "2011年",
+                      "value": "2011",
+                      "dltb": "DLTB_H_2011",
+                      "xzdw": "XZDW_H_2011",
+                      "selected": false
+                    },
+                    {
+                      "label": "2009年",
+                      "value": "2009",
+                      "dltb": "DLTB_H_2009",
+                      "xzdw": "XZDW_H_2009",
+                      "selected": true
+                    },
+                    {
+                      "label": "新三调",
+                      "selected": false,
+                      "value": "2020",
+                      "year": "2020",
+                      "sdVersion": "NEW",
+                      "dltb": "DLTB_320505",
+                      "scope20": "CZCDYD_320505",
+                      "dataSource": "GH_TDGH"
+                    }
+                  ],
+                  "year": "",
+                  "dataSource": "XZ_TDDC",
+                  "geometry": ""
+                }
+              },
+              "intersect": {
+                "url": "/map/rest/analysis/intersect",
+                "params": {
+                  "layerName": "BPDK_320000",
+                  "dataSource": "GL_GLSJ",
+                  "geometry": "",
+                  "outFields": "*",
+                  "returnFields": [
+                    {
+                      "name": "PCMC",
+                      "type": "esriFieldTypeString",
+                      "alias": "批次名称"
+                    },
+                    {
+                      "name": "PRONAME",
+                      "type": "esriFieldTypeString",
+                      "alias": "项目名称"
+                    },
+                    {
+                      "name": "DKNAME",
+                      "type": "esriFieldTypeString",
+                      "alias": "地块名称"
+                    }
+                  ]
+                }
+              },
+              "showktz": true
+            },
+            "label": "权属地类审核",
+            "value": "cadastre",
+            "color": "#2a8aff",
+            "icon": "icon-f-analysis-1"
+          },
+          {
+            "config": {
+              "isOrder": {
+                "url": "http://192.168.2.197:9016/gis/analysis/multiSimple2",
+                "types": [
+                  {
+                    "id": "tdlyztgh",
+                    "label": "土地利用总体规划",
+                    "layers": [
+                      {
+                        "layerName": "JSYDGZQ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "GZQLXDM",
+                            "type": "esriFieldTypeString",
+                            "alias": "管制区类型代码"
+                          }
+                        ],
+                        "label": "建设用地管制区",
+                        "value": "jsydgzq"
+                      },
+                      {
+                        "layerName": "TDYTQ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "TDYTQLXDM",
+                            "type": "esriFieldTypeString",
+                            "alias": "土地用途区类型代码"
+                          }
+                        ],
+                        "label": "土地用途区",
+                        "value": "tdytq"
+                      },
+                      {
+                        "layerName": "GHJBNTTZ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "TZLXDM",
+                            "type": "esriFieldTypeString",
+                            "alias": "基本农田代码"
+                          }
+                        ],
+                        "label": "规划基本农田调整",
+                        "value": "ghjbnttz"
+                      },
+                      {
+                        "layerName": "MZZDJSXM_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "XMLXDM",
+                            "type": "esriFieldTypeString",
+                            "alias": "项目类型代码"
+                          }
+                        ],
+                        "label": "重点建设项目",
+                        "value": "zdjsxm"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "hgxfxSxghsc",
+                    "label": "三线规划审查",
+                    "layers": [
+                      {
+                        "layerName": "JBNTBHTB_H_2017",
+                        "dataSource": "XZ_TDDC",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "BSM",
+                            "type": "esriFieldTypeInteger",
+                            "alias": "标识码",
+                            "length": 50,
+                            "domain": null
+                          },
+                          {
+                            "name": "DLMC",
+                            "type": "esriFieldTypeString",
+                            "alias": "地类名称",
+                            "length": 60,
+                            "domain": null
+                          }
+                        ],
+                        "label": "永久基本农田",
+                        "value": "yjjbnt"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "hgxfxCsztgh",
+                    "label": "城市总体规划",
+                    "layers": [
+                      {
+                        "layerName": "CKQDJ_320000",
+                        "dataSource": "GL_GLSJ",
+                        "returnFields": [
+                          {
+                            "name": "KSMC",
+                            "type": "esriFieldTypeString",
+                            "alias": "矿山名称",
+                            "length": 100,
+                            "domain": null
+                          },
+                          {
+                            "name": "KCZKZ",
+                            "type": "esriFieldTypeString",
+                            "alias": "开采主矿种",
+                            "length": 100,
+                            "domain": null
+                          }
+                        ],
+                        "label": "城市总体规划",
+                        "value": "hgxfxCsztgh"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "pass": "该项目范围符合所选法定规划。",
+              "fail": "该项目范围不符合{$}请向自然资源部门提出规划调整申请或调整项目位置后重新提交。",
+              "cityName": "金坛区",
+              "tdly": "《金坛区土地利用总体规划( 2006-2020 )》",
+              "sxgh": "",
+              "cszt": "《金坛区城市总体规划(2013-2030)》",
+              "isHideResult": true
+            },
+            "label": "合规性分析",
+            "value": "hgxfx",
+            "color": "#a75750",
+            "icon": "icon-f-analysis-5"
+          },
+          {
+            "config": {
+              "isOrder": {
+                "url": "/map/rest/analysis/multiJoint",
+                "types": [
+                  {
+                    "id": "zdfx",
+                    "label": "宗地分析",
+                    "layers": [
+                      {
+                        "layerName": "ZD",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "BDCDYH",
+                            "type": "esriFieldTypeString",
+                            "alias": "不动产单元号"
+                          },
+                          {
+                            "name": "DJH",
+                            "type": "esriFieldTypeString",
+                            "alias": "地籍号"
+                          },
+                          {
+                            "name": "ZDZT",
+                            "type": "esriFieldTypeString",
+                            "alias": "宗地状态"
+                          },
+                          {
+                            "name": "TDZL",
+                            "type": "esriFieldTypeString",
+                            "alias": "土地座落"
+                          },
+                          {
+                            "name": "SCMJ",
+                            "type": "esriFieldTypeString",
+                            "alias": "实测面积"
+                          }
+                        ],
+                        "label": "宗地",
+                        "value": "zd"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "fwfx",
+                    "label": "房屋分析",
+                    "layers": [
+                      {
+                        "layerName": "FW",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "FWMC",
+                            "type": "esriFieldTypeString",
+                            "alias": "房屋名称"
+                          },
+                          {
+                            "name": "FWCS",
+                            "type": "esriFieldTypeString",
+                            "alias": "房屋层数"
+                          },
+                          {
+                            "name": "FWJG",
+                            "type": "esriFieldTypeString",
+                            "alias": "房屋结构"
+                          }
+                        ],
+                        "label": "房屋",
+                        "value": "fw"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "pass": "该项目范围符合所选法定规划。",
+              "fail": "该项目范围不符合{$}请向自然资源部门提出规划调整申请或调整项目位置后重新提交。",
+              "href": "http://10.7.0.175/cas/custom?session_id=test&user_card=${loginname}&password=&url=http://10.7.0.175/estateplat-analysis/cxURI/bdcZwYzwQuery/",
+              "hrefReplace": [
+                "loginname"
+              ]
+            },
+            "label": "不动产分析",
+            "value": "bdcfx",
+            "color": "#5da750",
+            "icon": "icon-f-analysis-5"
+          },
+          {
+            "config": {
+              "isOrder": {
+                "url": "/map/rest/analysis/dgkzxjc",
+                "types": [
+                  {
+                    "id": "kzxjc",
+                    "label": "控制线检测",
+                    "layers": [
+                      {
+                        "layerName": "JSYDGZQ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "label": "建设用地管制区",
+                        "value": "jsydgzq",
+                        "returnFields": []
+                      },
+                      {
+                        "layerName": "GHJBNTTZ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "label": "基本农田保护区",
+                        "value": "jbntbhq",
+                        "returnFields": []
+                      },
+                      {
+                        "layerName": "STHX_LY",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "label": "国家级生态保护红线",
+                        "value": "gjjstbhhx",
+                        "returnFields": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              "pass": "该项目范围符合所选法定规划。",
+              "fail": "该项目范围不符合{$}请向自然资源部门提出规划调整申请或调整项目位置后重新提交。",
+              "href": "http://10.7.0.175/cas/custom?session_id=test&user_card=${loginname}&password=&url=http://10.7.0.175/estateplat-analysis/cxURI/bdcZwYzwQuery/",
+              "hrefReplace": [
+                "loginname"
+              ]
+            },
+            "label": "多规控制线检测",
+            "value": "dgkzxjc",
+            "color": "#5da750",
+            "icon": "icon-f-analysis-5"
+          },
+          {
+            "config": {
+              "isOrder": {
+                "url": "http://192.168.2.197:9016/gis/analysis/cyxfx",
+                "types": [
+                  {
+                    "id": "cgtgcy",
+                    "label": "城规土规差异",
+                    "layers": [
+                      {
+                        "layerName": "TDYTQ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "label": "土规",
+                        "value": "tg",
+                        "returnFields": []
+                      },
+                      {
+                        "layerName": "GHYD",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "label": "城规",
+                        "value": "cg",
+                        "returnFields": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              "pass": "该项目范围符合所选法定规划。",
+              "fail": "该项目范围不符合{$}请向自然资源部门提出规划调整申请或调整项目位置后重新提交。",
+              "href": "http://10.7.0.175/cas/custom?session_id=test&user_card=${loginname}&password=&url=http://10.7.0.175/estateplat-analysis/cxURI/bdcZwYzwQuery/",
+              "hrefReplace": [
+                "loginname"
+              ]
+            },
+            "label": "差异性分析",
+            "value": "cyxfx",
+            "color": "#5da750",
+            "icon": "icon-f-analysis-5"
+          },
+          {
+            "label": "海洋规划分析",
+            "value": "hyghfx",
+            "color": "#a75750",
+            "icon": "icon-f-analysis-5",
+            "config": {
+              "isOrder": {
+                "url": "http://192.168.2.197:9016/gis/analysis/multiSimple2",
+                "types": [
+                  {
+                    "id": "hyztgnqh",
+                    "label": "海洋主体功能区划分析",
+                    "layers": [
+                      {
+                        "layerName": "js_ztgnqh",
+                        "dataSource": "GL_GLSJ",
+                        "geometry": "",
+                        "returnFields": [
+                          {
+                            "name": "功能分区",
+                            "type": "esriFieldTypeString",
+                            "alias": ""
+                          }
+                        ],
+                        "label": "主体功能区划分析",
+                        "value": "ztgnqh"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "config": {
+              "isOrder": {
+                "url": "http://192.168.2.197:9016/gis/analysis/multiSimple2",
+                "types": [
+                  {
+                    "id": "kcfx",
+                    "label": "矿产规划分析",
+                    "layers": [
+                      {
+                        "layerName": "TKQDJ_320000",
+                        "dataSource": "GL_GLSJ",
+                        "geometry": "",
+                        "returnFields": [],
+                        "label": "探矿权范围",
+                        "value": "tqc"
+                      },
+                      {
+                        "layerName": "CKQDJ_320000",
+                        "dataSource": "GL_GLSJ",
+                        "geometry": "",
+                        "returnFields": [],
+                        "label": "采矿权范围",
+                        "value": "ckq"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "pass": "该项目范围符合所选法定规划。",
+              "fail": "该项目范围不符合{$}请向自然资源部门提出规划调整申请或调整项目位置后重新提交。"
+            },
+            "label": "矿产规划分析",
+            "value": "kcghfx",
+            "color": "#8979af",
+            "icon": "icon-f-analysis-4"
+          },
+          {
+            "config": {
+              "isOrder": {
+                "bufferUrl": "http://192.168.2.197:9016/gis/analysis/buffer",
+                "url": "/map/rest/analysis/multiSimple",
+                "types": [
+                  {
+                    "id": "hcqtrjc",
+                    "label": "缓冲区退让检测",
+                    "layers": [
+                      {
+                        "layerName": "JSYDGZQ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "label": "建设用地管制区",
+                        "value": "jsydgzq",
+                        "returnFields": []
+                      },
+                      {
+                        "layerName": "GHJBNTTZ_EF_2020",
+                        "dataSource": "GH_TDGH",
+                        "geometry": "",
+                        "label": "永久基本农田红线",
+                        "value": "yjjbnthx",
+                        "returnFields": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              "pass": "该项目范围符合所选法定规划。",
+              "fail": "该项目范围不符合{$}请向自然资源部门提出规划调整申请或调整项目位置后重新提交。",
+              "href": "http://10.7.0.175/cas/custom?session_id=test&user_card=${loginname}&password=&url=http://10.7.0.175/estateplat-analysis/cxURI/bdcZwYzwQuery/",
+              "hrefReplace": [
+                "loginname"
+              ]
+            },
+            "label": "缓冲区退让分析",
+            "value": "hcqtrfx",
+            "color": "#5da750",
+            "icon": "icon-f-analysis-5"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KSMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "矿山名称",
+                        "length": 100,
+                        "domain": null
+                      },
+                      {
+                        "name": "KCZKZ",
+                        "type": "esriFieldTypeString",
+                        "alias": "开采主矿种",
+                        "length": 100,
+                        "domain": null
+                      }
+                    ],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    },
+                    "showAreaScale": {
+                      "isShow": false,
+                      "label": "比重",
+                      "type": "OG_SHAPE_AREA"
+                    }
+                  },
+                  "label": "采矿权图层",
+                  "value": "ckq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目名称",
+                        "length": 100,
+                        "domain": null
+                      },
+                      {
+                        "name": "KCKZ",
+                        "type": "esriFieldTypeString",
+                        "alias": "勘察矿种",
+                        "length": 100,
+                        "domain": null
+                      }
+                    ],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层",
+                  "value": "tkq"
+                }
+              ]
+            },
+            "label": "矿产压覆分析",
+            "value": "herbYFKAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "KFPQJBXXM",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KFPQBH",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区编号",
+                        "length": 20,
+                        "domain": null
+                      },
+                      {
+                        "name": "KFPQMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区名称",
+                        "length": 200,
+                        "domain": null
+                      },
+                      {
+                        "name": "SZXZMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "所在乡（镇、街道）或园区名称",
+                        "length": 200,
+                        "domain": null
+                      }
+                    ],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "showAreaScale": {
+                      "isShow": true,
+                      "label": "占比",
+                      "type": "IN_SHAPE_AREA"
+                    },
+                    "count": {
+                      "type": "single",
+                      "fields": "SHAPE_AREA"
+                    }
+                  },
+                  "label": "开发片区基本信息",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "KFPQTDLY",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KFPQBH",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区编号",
+                        "length": 20,
+                        "domain": null
+                      },
+                      {
+                        "name": "KFPQMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区名称",
+                        "length": 200,
+                        "domain": null
+                      },
+                      {
+                        "name": "TDQSZK",
+                        "type": "esriFieldTypeString",
+                        "alias": "土地权属状况",
+                        "length": 50,
+                        "domain": null
+                      }
+                    ],
+                    "userDefinedFields": [
+                      {
+                        "name": "TDQSZK",
+                        "type": "esriFieldTypeString",
+                        "alias": "土地权属状况"
+                      },
+                      {
+                        "name": "SHAPE_AREA",
+                        "type": "esriFieldTypeDouble",
+                        "alias": "面积"
+                      }
+                    ],
+                    "showIntersect": {
+                      "isShow": false,
+                      "label": "面积"
+                    },
+                    "showAreaScale": {
+                      "isShow": true,
+                      "label": "占比",
+                      "type": "GEO_AREA"
+                    },
+                    "count": {
+                      "type": "single",
+                      "fields": "SHAPE_AREA"
+                    }
+                  },
+                  "label": "开发片区土地利用",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "KFPQGYXYD",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KFPQBH",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区编号",
+                        "length": 20,
+                        "domain": null
+                      },
+                      {
+                        "name": "KFPQMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区名称",
+                        "length": 200,
+                        "domain": null
+                      },
+                      {
+                        "name": "GYXYDLB",
+                        "type": "esriFieldTypeString",
+                        "alias": "公益性用地类别",
+                        "length": 30,
+                        "domain": null
+                      }
+                    ],
+                    "userDefinedFields": [
+                      {
+                        "name": "GYXYDLB",
+                        "type": "esriFieldTypeString",
+                        "alias": "公益性用地类别"
+                      },
+                      {
+                        "name": "SHAPE_AREA",
+                        "type": "esriFieldTypeDouble",
+                        "alias": "面积"
+                      }
+                    ],
+                    "showAreaScale": {
+                      "isShow": true,
+                      "label": "占比",
+                      "type": "GEO_AREA"
+                    },
+                    "showIntersect": {
+                      "isShow": false,
+                      "label": "面积"
+                    },
+                    "count": {
+                      "type": "single",
+                      "fields": "SHAPE_AREA"
+                    }
+                  },
+                  "label": "开发片区公益性用地",
+                  "value": "base"
+                }
+              ],
+              "url": "/map/rest/analysis/cpkfscAnalysis"
+            },
+            "label": "成片开发区审查分析",
+            "value": "cpkfqAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": {
+                "threeLine": [
+                  {
+                    "config": {
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ",
+                      "returnFields": [
+                        {
+                          "name": "KSMC",
+                          "type": "esriFieldTypeString",
+                          "alias": "矿山名称",
+                          "length": 100,
+                          "domain": null
+                        },
+                        {
+                          "name": "KCZKZ",
+                          "type": "esriFieldTypeString",
+                          "alias": "开采主矿种",
+                          "length": 100,
+                          "domain": null
+                        }
+                      ]
+                    },
+                    "label": "城镇增长边界",
+                    "value": "czzzbj",
+                    "type": "contain"
+                  },
+                  {
+                    "config": {
+                      "layerName": "TKQDJ_320000",
+                      "dataSource": "GL_GLSJ",
+                      "returnFields": [
+                        {
+                          "name": "XMMC",
+                          "type": "esriFieldTypeString",
+                          "alias": "项目名称",
+                          "length": 100,
+                          "domain": null
+                        },
+                        {
+                          "name": "KCKZ",
+                          "type": "esriFieldTypeString",
+                          "alias": "勘察矿种",
+                          "length": 100,
+                          "domain": null
+                        }
+                      ]
+                    },
+                    "label": "永久基本农田",
+                    "value": "yjjbnt",
+                    "type": "intersect"
+                  },
+                  {
+                    "config": {
+                      "layerName": "TKQDJ_320000",
+                      "dataSource": "GL_GLSJ",
+                      "returnFields": [
+                        {
+                          "name": "XMMC",
+                          "type": "esriFieldTypeString",
+                          "alias": "项目名称",
+                          "length": 100,
+                          "domain": null
+                        },
+                        {
+                          "name": "KCKZ",
+                          "type": "esriFieldTypeString",
+                          "alias": "勘察矿种",
+                          "length": 100,
+                          "domain": null
+                        }
+                      ]
+                    },
+                    "label": "生态控制线",
+                    "value": "stkzhx",
+                    "type": "intersect"
+                  }
+                ],
+                "otherLine": [
+                  {
+                    "config": {
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ",
+                      "returnFields": [
+                        {
+                          "name": "KSMC",
+                          "type": "esriFieldTypeString",
+                          "alias": "矿山名称",
+                          "length": 100,
+                          "domain": null
+                        },
+                        {
+                          "name": "KCZKZ",
+                          "type": "esriFieldTypeString",
+                          "alias": "开采主矿种",
+                          "length": 100,
+                          "domain": null
+                        }
+                      ]
+                    },
+                    "label": "城市蓝线",
+                    "value": "csnx",
+                    "type": "contain"
+                  },
+                  {
+                    "config": {
+                      "layerName": "TKQDJ_320000",
+                      "dataSource": "GL_GLSJ",
+                      "returnFields": [
+                        {
+                          "name": "XMMC",
+                          "type": "esriFieldTypeString",
+                          "alias": "项目名称",
+                          "length": 100,
+                          "domain": null
+                        },
+                        {
+                          "name": "KCKZ",
+                          "type": "esriFieldTypeString",
+                          "alias": "勘察矿种",
+                          "length": 100,
+                          "domain": null
+                        }
+                      ]
+                    },
+                    "label": "城市绿线",
+                    "value": "cslx",
+                    "type": "intersect"
+                  },
+                  {
+                    "config": {
+                      "layerName": "TKQDJ_320000",
+                      "dataSource": "GL_GLSJ",
+                      "returnFields": [
+                        {
+                          "name": "XMMC",
+                          "type": "esriFieldTypeString",
+                          "alias": "项目名称",
+                          "length": 100,
+                          "domain": null
+                        },
+                        {
+                          "name": "KCKZ",
+                          "type": "esriFieldTypeString",
+                          "alias": "勘察矿种",
+                          "length": 100,
+                          "domain": null
+                        }
+                      ]
+                    },
+                    "label": "城市紫线",
+                    "value": "cszx",
+                    "type": "intersect"
+                  }
+                ],
+                "specialPlans": [
+                  {
+                    "config": {
+                      "layerName": "CKQDJ_320000",
+                      "dataSource": "GL_GLSJ",
+                      "returnFields": [
+                        {
+                          "name": "KSMC",
+                          "type": "esriFieldTypeString",
+                          "alias": "矿山名称",
+                          "length": 100,
+                          "domain": null
+                        },
+                        {
+                          "name": "KCZKZ",
+                          "type": "esriFieldTypeString",
+                          "alias": "开采主矿种",
+                          "length": 100,
+                          "domain": null
+                        }
+                      ]
+                    },
+                    "label": "城市紫线",
+                    "value": "cszx",
+                    "type": "intersect"
+                  }
+                ]
+              },
+              "exportKey": {
+                "proName": "PCMC",
+                "orgName": "UNIT_NAME",
+                "landUse": "APP_TYPE"
+              },
+              "analysisUrl": "/map/rest/analysis/hgxscAnalysis",
+              "exportUrl": "/map/rest/analysis/hgxscExportPdf"
+            },
+            "label": "合规性审查分析",
+            "value": "hgxscfx",
+            "color": "#a75750",
+            "icon": "icon-f-rivers"
+          },
+          {
+            "config": {
+              "analyticGroup": [
+                {
+                  "label": "专题1",
+                  "value": [
+                    "cadastre",
+                    "tdghsc",
+                    "bpcdjc"
+                  ]
+                },
+                {
+                  "label": "专题2",
+                  "value": [
+                    "bpcdjc",
+                    "sdxz",
+                    "hgxfx"
+                  ]
+                }
+              ],
+              "analyticType": [
+                {
+                  "label": "测绘成果目录分析统计",
+                  "value": "chcgmltj",
+                  "params": {
+                    "types": [
+                      "test1",
+                      "test2"
+                    ]
+                  }
+                },
+                {
+                  "label": "权属地类审核",
+                  "value": "cadastre",
+                  "params": {
+                    "year": "2009"
+                  }
+                },
+                {
+                  "label": "农村建设用地调查-房屋分析",
+                  "value": "ncjsyddcfw",
+                  "params": {}
+                },
+                {
+                  "label": "报批重叠检查分析",
+                  "value": "bpcdjc",
+                  "params": {}
+                },
+                {
+                  "label": "土地规划审查分析",
+                  "value": "tdghsc",
+                  "params": {
+                    "year": "2020"
+                  }
+                },
+                {
+                  "label": "报批供地分析",
+                  "value": "base",
+                  "params": {}
+                },
+                {
+                  "label": "三调现状",
+                  "value": "sdxz",
+                  "params": {
+                    "year": "2019"
+                  }
+                },
+                {
+                  "label": "矿产压覆分析",
+                  "value": "herbYFKAnalysis",
+                  "params": {}
+                },
+                {
+                  "label": "永久基本农田分析",
+                  "value": "basicFarm",
+                  "params": {}
+                },
+                {
+                  "label": "合规性分析",
+                  "value": "hgxfx",
+                  "params": {}
+                },
+                {
+                  "label": "不动产分析",
+                  "value": "bdcfx",
+                  "params": {}
+                },
+                {
+                  "label": "多规控制线检测",
+                  "value": "dgkzxjc",
+                  "params": {}
+                },
+                {
+                  "label": "差异性分析",
+                  "value": "cyxfx",
+                  "params": {}
+                },
+                {
+                  "label": "海洋规划分析",
+                  "value": "hyghfx",
+                  "params": {}
+                },
+                {
+                  "label": "矿产规划分析",
+                  "value": "kcghfx",
+                  "params": {}
+                },
+                {
+                  "label": "缓冲区退让分析",
+                  "value": "hcqtrfx",
+                  "params": {}
+                }
+              ]
+            },
+            "label": "综合分析",
+            "value": "comprehensiveAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-analysis-3"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "STHX_LY",
+                    "dataSource": "GH_TDGH",
+                    "returnFields": []
+                  },
+                  "label": "生态保护红线",
+                  "value": "sthx"
+                },
+                {
+                  "config": {
+                    "layerName": "JBNTBHTB_H_2017",
+                    "dataSource": "XZ_TDDC",
+                    "returnFields": []
+                  },
+                  "label": "基本农田",
+                  "value": "jbnt"
+                },
+                {
+                  "config": {
+                    "layerName": "ZRBHD",
+                    "dataSource": "LYJSJ",
+                    "returnFields": []
+                  },
+                  "label": "自然保护地",
+                  "value": "zrbhd"
+                },
+                {
+                  "config": {
+                    "layerName": "GYL",
+                    "dataSource": "LYJSJ",
+                    "returnFields": []
+                  },
+                  "label": "重点公益林",
+                  "value": "zdgyl"
+                }
+              ],
+              "ghsc": {
+                "year": "2020",
+                "dataSource": "GH_TDGH"
+              },
+              "remoteImgs": [
+                {
+                  "imgName": "XZQ_C_2018",
+                  "label": "主影像",
+                  "value": "main"
+                },
+                {
+                  "imgName": "XZQ_C_2018",
+                  "label": "基本农田影像",
+                  "value": "jbnt"
+                },
+                {
+                  "imgName": "XZQ_C_2018",
+                  "label": "生态红线影像",
+                  "value": "sthx"
+                },
+                {
+                  "imgName": "XZQ_C_2018",
+                  "label": "自然保护地影像",
+                  "value": "zrbhd"
+                },
+                {
+                  "imgName": "XZQ_C_2018",
+                  "label": "重点公益林影像",
+                  "value": "zdgyl"
+                }
+              ],
+              "analysisUrl": "http://192.168.1.46:19022/rest/analysis/ytgzAnalysis",
+              "exportUrl": "http://192.168.1.46:19022/rest/analysis/doGeneratePdf"
+            },
+            "label": "用途管制检测",
+            "value": "ytgzAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KSMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "矿山名称",
+                        "length": 100,
+                        "domain": null
+                      }
+                    ]
+                  },
+                  "label": "采矿权图层",
+                  "value": "ckq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目名称",
+                        "length": 100,
+                        "domain": null
+                      }
+                    ]
+                  },
+                  "label": "探矿权图层",
+                  "value": "tkq"
+                }
+              ],
+              "analysisUrl": "/map/rest/analysis/stgzqAnalysis",
+              "exportUrl": "/map/rest/analysis/stgzqExportExcel",
+              "exportShpUrl": "/map/rest/analysis/geoJson2AnyFile"
+            },
+            "label": "生态管控区分析",
+            "value": "stgzqAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KSMC",
+                        "alias": "矿山名称"
+                      },
+                      {
+                        "name": "KCZKZ",
+                        "alias": "开采主矿种"
+                      }
+                    ],
+                    "proName": "KSMC"
+                  },
+                  "label": "采矿权图层",
+                  "value": "ckq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "alias": "勘察矿种"
+                      }
+                    ],
+                    "proName": "XMMC"
+                  },
+                  "label": "探矿权图层",
+                  "value": "tkq"
+                }
+              ],
+              "bufferUrl": "http://192.168.2.197:9016/gis/analysis/buffer",
+              "analysisUrl": "/map/rest/analysis/yfkAnalysis",
+              "toMarkUrl": "/map/rest/analysis/fc2BMark",
+              "exportWordUrl": "sdsd",
+              "sr": "4528"
+            },
+            "label": "矿产压覆分析(泰州)",
+            "value": "YfkQAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "alias": "勘察矿种"
+                      }
+                    ]
+                  },
+                  "label": "探矿权图层2",
+                  "value": "tkq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "alias": "勘察矿种"
+                      }
+                    ]
+                  },
+                  "label": "探矿权图层",
+                  "value": "tkq"
+                },
+                {
+                  "config": {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KSMC",
+                        "alias": "矿山名称"
+                      },
+                      {
+                        "name": "KCZKZ",
+                        "alias": "开采主矿种"
+                      }
+                    ],
+                    "groupKey": {
+                      "value": "KSMC",
+                      "label": "矿山名称"
+                    }
+                  },
+                  "label": "采矿权图层",
+                  "value": "ckq"
+                }
+              ],
+              "ghsc": {
+                "year": "2020",
+                "dataSource": "GH_TDGH",
+                "layerType": "JSYDGZQ,TDYTQ"
+              },
+              "url": "/map/rest/analysis/tdzzAnalysis"
+            },
+            "label": "土地整治分析",
+            "value": "tdzzAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "alias": "勘察矿种"
+                      }
+                    ]
+                  },
+                  "label": "探矿权图层2",
+                  "value": "tkq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "alias": "勘察矿种"
+                      }
+                    ]
+                  },
+                  "label": "探矿权图层",
+                  "value": "tkq"
+                },
+                {
+                  "config": {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KSMC",
+                        "alias": "矿山名称"
+                      },
+                      {
+                        "name": "KCZKZ",
+                        "alias": "开采主矿种"
+                      }
+                    ],
+                    "groupKey": {
+                      "value": "KSMC",
+                      "label": "矿山名称"
+                    }
+                  },
+                  "label": "采矿权图层",
+                  "value": "ckq"
+                }
+              ],
+              "url": "/map/rest/analysis/tdzzAnalysis"
+            },
+            "label": "土地整治分析simple",
+            "value": "tdzzAnalysisSimple",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KSMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "矿山名称"
+                      },
+                      {
+                        "name": "KCZKZ",
+                        "type": "esriFieldTypeString",
+                        "alias": "开采主矿种"
+                      }
+                    ],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    },
+                    "showAreaScale": {
+                      "isShow": false,
+                      "label": "比重",
+                      "type": "OG_SHAPE_AREA"
+                    }
+                  },
+                  "label": "采矿权图层",
+                  "value": "ckq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "type": "esriFieldTypeString",
+                        "alias": "勘察矿种"
+                      }
+                    ],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层",
+                  "value": "tkq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-without-fields",
+                  "value": "test1"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-with-empty-fields",
+                  "value": "test2"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-without-fields",
+                  "value": "test3"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-with-empty-fields",
+                  "value": "test4"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-without-fields",
+                  "value": "test5"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-with-empty-fields",
+                  "value": "test6"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-without-fields",
+                  "value": "test7"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-with-empty-fields",
+                  "value": "test8"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-without-fields",
+                  "value": "test9"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-with-empty-fields",
+                  "value": "test10"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-without-fields",
+                  "value": "test11"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "压盖面积"
+                    }
+                  },
+                  "label": "探矿权图层-with-empty-fields",
+                  "value": "test12"
+                }
+              ]
+            },
+            "label": "自定义分析",
+            "value": "customAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "dataSource": "GH_TDGH",
+              "layers": {
+                "x_cj": "XZPG_DMCJ",
+                "x_rt": "XZPG_TSLYTRT",
+                "x_st": "XZPG_TSLYTST",
+                "y_cj": "YCPG_DMCJ",
+                "y_rt": "YCPG_TSLYTRT",
+                "y_st": "YCPG_TSLYTST",
+                "y_st3": "YCPG_TSLYTST_3m",
+                "y_st5": "YCPG_TSLYTST_5m",
+                "z_b": "ZHPG",
+                "z_k": "ZHPG_3m_5m"
+              },
+              "url": "/map/rest/analysis/wxxpgAnalysis",
+              "exportWordUrl": "ddd"
+            },
+            "label": "地址灾害危险性评估",
+            "value": "wxxpgAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "DYH",
+                    "dataSource": "GL_GLSJ",
+                    "userDefinedFields": [
+                      {
+                        "name": "XZQMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "行政区名称"
+                      },
+                      {
+                        "name": "onein",
+                        "type": "double",
+                        "dict": true,
+                        "alias": "1公里范围"
+                      },
+                      {
+                        "name": "1to2",
+                        "type": "double",
+                        "dict": true,
+                        "alias": "1至2公里范围"
+                      },
+                      {
+                        "name": "AREA",
+                        "type": "double",
+                        "alias": "合计"
+                      }
+                    ],
+                    "count": {
+                      "type": "multi",
+                      "params": {
+                        "row": {
+                          "groupKey": "XZQMC",
+                          "type": "dataOnly",
+                          "dict": []
+                        },
+                        "col": {
+                          "groupKey": "GKFW",
+                          "type": "all"
+                        }
+                      }
+                    }
+                  },
+                  "label": "大运河管控区",
+                  "value": "base"
+                }
+              ],
+              "url": "/map/rest/analysis/commonAnalysis"
+            },
+            "label": "大运河管控区域分析",
+            "value": "dyhgkAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "KFPQJBXXM",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KFPQBH",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区编号",
+                        "length": 20,
+                        "domain": null
+                      },
+                      {
+                        "name": "KFPQMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "开发片区名称",
+                        "length": 200,
+                        "domain": null
+                      },
+                      {
+                        "name": "SZXZMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "所在乡（镇、街道）或园区名称",
+                        "length": 200,
+                        "domain": null
+                      }
+                    ],
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "showAreaScale": {
+                      "isShow": true,
+                      "label": "占比",
+                      "type": "IN_SHAPE_AREA"
+                    },
+                    "count": {
+                      "type": "single",
+                      "fields": "SHAPE_AREA"
+                    }
+                  },
+                  "label": "开发片区基本信息",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "KFPQTDLY",
+                    "dataSource": "GL_GLSJ",
+                    "userDefinedFields": [
+                      {
+                        "name": "TDQSZK",
+                        "type": "esriFieldTypeString",
+                        "alias": "土地权属状况"
+                      },
+                      {
+                        "name": "AREA",
+                        "type": "esriFieldTypeDouble",
+                        "alias": "面积"
+                      }
+                    ],
+                    "showAreaScale": {
+                      "isShow": true,
+                      "label": "占比",
+                      "type": "GEO_AREA"
+                    },
+                    "count": {
+                      "type": "multi",
+                      "params": {
+                        "row": {
+                          "groupKey": "TDQSZK",
+                          "type": "all",
+                          "dict": [
+                            "拟征收集体土地",
+                            "国有土地",
+                            "已建或待建集体土地",
+                            "集体不可建设土地",
+                            "其他集体用地"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "label": "开发片区土地利用",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "KFPQGYXYD",
+                    "dataSource": "GL_GLSJ",
+                    "userDefinedFields": [
+                      {
+                        "name": "GYXYDLB",
+                        "type": "esriFieldTypeString",
+                        "alias": "公益性用地类别"
+                      },
+                      {
+                        "name": "AREA",
+                        "type": "esriFieldTypeDouble",
+                        "alias": "面积"
+                      }
+                    ],
+                    "showAreaScale": {
+                      "isShow": true,
+                      "label": "占比",
+                      "type": "GEO_AREA"
+                    },
+                    "count": {
+                      "type": "multi",
+                      "params": {
+                        "row": {
+                          "groupKey": "GYXYDLB",
+                          "type": "all",
+                          "dict": [
+                            "基础设施",
+                            "公共事业",
+                            "扶贫搬迁、保障性安居工程",
+                            "军事、外交",
+                            "其他公益性用地"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "label": "开发片区公益性用地",
+                  "value": "base"
+                }
+              ],
+              "url": "/map/rest/analysis/commonAnalysis"
+            },
+            "label": "成片开发区审查分析pro",
+            "value": "cpkfqAnalysispro",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "NYD",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": "XJXZQMC,XMZT,DKBH,GDLX,XMBH",
+                    "resultFields": [
+                      {
+                        "name": "XJXZQMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "行政区"
+                      },
+                      {
+                        "name": "DKBH",
+                        "type": "esriFieldTypeString",
+                        "alias": "地块编号"
+                      },
+                      {
+                        "name": "XMBH",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目编号"
+                      }
+                    ]
+                  },
+                  "label": "农用地图层",
+                  "value": "nyd"
+                }
+              ],
+              "showIntersect": {
+                "isShow": true,
+                "label": "面积"
+              },
+              "url": "/map/rest/analysis/zjggAnalysis"
+            },
+            "label": "农用地增减挂钩分析",
+            "value": "zjggAnalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "edxz": {
+                "dataSource": "XZ_TDDC",
+                "dltb": "DLTB_H_2011",
+                "xzdw": "",
+                "lxdw": "",
+                "year": "2011"
+              },
+              "sdxz": {
+                "dataSource": "XZ_SDSJ",
+                "dltb": "DLTB_1",
+                "year": "2019"
+              },
+              "ghsc": {
+                "year": "2020",
+                "dataSource": "GH_TDGH",
+                "outFields": "*"
+              },
+              "lygh": {},
+              "url": "/map/rest/analysis/mDLGHSyntheticAnalysis"
+            },
+            "label": "地类规划综合分析（多地块）",
+            "value": "mulDLGHanalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "edxz": {
+                "dataSource": "XZ_TDDC",
+                "dltb": "DLTB_H_2011",
+                "xzdw": "",
+                "lxdw": "",
+                "year": "2011"
+              },
+              "sdxz": {
+                "dataSource": "XZ_SDSJ",
+                "dltb": "DLTB_1",
+                "year": "2019"
+              },
+              "ghsc": {
+                "year": "2020",
+                "dataSource": "GH_TDGH",
+                "outFields": "*"
+              },
+              "lygh": {},
+              "url": "/map/rest/analysis/sDLGHSyntheticAnalysis"
+            },
+            "label": "地类规划综合分析（单地块）",
+            "value": "singleDLGHanalysis",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "alias": "勘察矿种"
+                      }
+                    ]
+                  },
+                  "label": "探矿权图层2",
+                  "value": "tkq"
+                },
+                {
+                  "config": {
+                    "layerName": "TKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "XMMC",
+                        "alias": "项目名称"
+                      },
+                      {
+                        "name": "KCKZ",
+                        "alias": "勘察矿种"
+                      }
+                    ]
+                  },
+                  "label": "探矿权图层",
+                  "value": "tkq"
+                },
+                {
+                  "config": {
+                    "layerName": "CKQDJ_320000",
+                    "dataSource": "GL_GLSJ",
+                    "returnFields": [
+                      {
+                        "name": "KSMC",
+                        "alias": "矿山名称"
+                      },
+                      {
+                        "name": "KCZKZ",
+                        "alias": "开采主矿种"
+                      }
+                    ],
+                    "groupKey": {
+                      "value": "KSMC",
+                      "label": "矿山名称"
+                    }
+                  },
+                  "label": "采矿权图层",
+                  "value": "ckq"
+                }
+              ],
+              "url": "/map/rest/analysis/tdzzAnalysis",
+              "exportShpUrl": "/map/rest/analysis/geoJson2AnyFile",
+              "detail": {
+                "hasDetail": true,
+                "detailField": [
+                  "XMMC",
+                  "KSMC"
+                ]
+              }
+            },
+            "label": "生态管控区分析（管线）",
+            "value": "tdzzAnalysisGX",
+            "color": "#a75750",
+            "icon": "icon-f-adminis"
+          },
+          {
+            "label": "建设用地监管分析",
+            "value": "jsydJG",
+            "config": {
+              "url": "/map/rest/analysis/jsydIntersectYjjbnt2",
+              "layerConfig": {
+                "ydxm": {
+                  "layerName": "",
+                  "dataSource": "",
+                  "fields": {
+                    "mj": "SHARE_AREA",
+                    "nf": "NF"
+                  }
+                },
+                "ydhx": {
+                  "layerName": "",
+                  "dataSource": "",
+                  "fields": {
+                    "mj": "SHARE_AREA",
+                    "upload_date": "DDKK",
+                    "status": {
+                      "field": "STATUS",
+                      "persistence": "入库",
+                      "temporary": "临时"
+                    }
+                  }
+                },
+                "ndzb": {
+                  "2018": 2222,
+                  "2019": 1222,
+                  "2020": 4345,
+                  "2021": 6787,
+                  "2022": 6789
+                }
+              }
+            },
+            "isRequestBody": true,
+            "color": "#a7b750",
+            "icon": "icon-f-analysis-2"
+          }
+        ],
+        "uploadFileChoose": false
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#77de72"
+    },
+    {
+      "id": "fileout",
+      "uri": "fileout",
+      "label": "导入导出",
+      "iconCls": "icon-f-add-layer",
+      "config": {
+        "useGeoType": "all",
+        "expUrl": "/map/rest/analysis/geoJson2AnyFile",
+        "uploadFileChoose": false,
+        "outFileChoose": false,
+        "supportExp": [
+          {
+            "name": "cad文件",
+            "suffix": "*.dwg"
+          },
+          {
+            "name": "shp文件",
+            "suffix": "*.shp"
+          },
+          {
+            "name": "txt文件",
+            "suffix": "*.txt"
+          },
+          {
+            "name": "excel文件",
+            "suffix": "*.excel"
+          }
+        ],
+        "layers": [
+          {
+            "layerIndex": 0,
+            "layerName": "土地利用现状2019",
+            "layerId": 0,
+            "serviceId": "ff80808173dcf0710173e666985a0051",
+            "returnFields": [],
+            "type": "field"
+          },
+          {
+            "layerIndex": 1,
+            "layerName": "报批地块320000",
+            "layerId": 1,
+            "serviceId": "ff8080817c157df4017c2b4bbabb0079",
+            "returnFields": [],
+            "type": "field"
+          },
+          {
+            "layerIndex": 2,
+            "layerName": "预审地块",
+            "layerId": 2,
+            "serviceId": "ff808081789114340178b08d339f01d4",
+            "returnFields": [],
+            "type": "field"
+          }
+        ],
+        "customCrs": [
+          {
+            "label": "投影坐标系（120度，40度带）",
+            "value": "0"
+          },
+          {
+            "label": "投影坐标系（119.25度）",
+            "value": "LianYunGang-119.25"
+          },
+          {
+            "label": "投影坐标系（119.33度）",
+            "value": "LianYunGang-119.33"
+          },
+          {
+            "label": "投影坐标系（118.75度）",
+            "value": "LianYunGang-118.75"
+          },
+          {
+            "label": "地理坐标系（经纬度）",
+            "value": "1"
+          }
+        ],
+        "templets": [
+          {
+            "id": "templet-txt",
+            "label": "txt模板",
+            "icon": "icon-f-txt-2",
+            "color": "#2a80ff"
+          },
+          {
+            "id": "templet-excel",
+            "label": "excel模板",
+            "icon": "icon-f-excel",
+            "color": "#037503"
+          },
+          {
+            "id": "templet-shp",
+            "label": "shp模板",
+            "icon": "icon-f-shp",
+            "color": "#26a176"
+          }
+        ]
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#5fcde8"
+    },
+    {
+      "id": "commonAnalytic",
+      "uri": "commonAnalytic",
+      "label": "通用分析",
+      "iconCls": "icon-f-heatmap",
+      "config": {
+        "defaultRegionCode": "320000",
+        "analyticType": [
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "STHX_LY",
+                    "returnFields": [
+                      {
+                        "name": "名称",
+                        "type": "esriFieldTypeString",
+                        "alias": "名称",
+                        "length": 32,
+                        "domain": null
+                      },
+                      {
+                        "name": "LB",
+                        "type": "esriFieldTypeString",
+                        "alias": "类型",
+                        "length": 32,
+                        "domain": null
+                      }
+                    ],
+                    "returnFieldStrs": [
+                      "名称",
+                      "类型"
+                    ],
+                    "params": {
+                      "geometry": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "dataSource": "GH_TDGH"
+                  },
+                  "label": "陆域生态红线",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "STHX_HY",
+                    "params": {
+                      "exportable": "",
+                      "数据类型": "",
+                      "geometry": "",
+                      "导入类型": "",
+                      "链接": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "returnFields": [
+                      {
+                        "name": "名称",
+                        "type": "esriFieldTypeString",
+                        "alias": "名称",
+                        "length": 32,
+                        "domain": null
+                      },
+                      {
+                        "name": "类型",
+                        "type": "esriFieldTypeString",
+                        "alias": "类型",
+                        "length": 32,
+                        "domain": null
+                      }
+                    ],
+                    "returnFieldStrs": [
+                      "名称",
+                      "类型"
+                    ],
+                    "dataSource": "GH_TDGH"
+                  },
+                  "label": "海域生态红线",
+                  "value": "base"
+                }
+              ]
+            },
+            "label": "生态保护红线分析",
+            "value": "base"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "JSYDGZQ_EF_2020",
+                    "returnFields": [],
+                    "returnFieldStrs": [],
+                    "params": {
+                      "geometry": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "dataSource": "GH_TDGH"
+                  },
+                  "label": "建设用地管制区",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "TDYTQ_EF_2020",
+                    "params": {
+                      "exportable": "",
+                      "数据类型": "",
+                      "geometry": "",
+                      "导入类型": "",
+                      "链接": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "dataSource": "GH_TDGH",
+                    "returnFields": [],
+                    "returnFieldStrs": []
+                  },
+                  "label": "土地用途分区",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "GHJBNTTZ_EF_2020",
+                    "params": {
+                      "exportable": "",
+                      "数据类型": "",
+                      "geometry": "",
+                      "导入类型": "",
+                      "链接": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "dataSource": "GH_TDGH",
+                    "returnFields": [],
+                    "returnFieldStrs": []
+                  },
+                  "label": "规划基本农田调整",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "MZZDJSXM_EF_2020",
+                    "params": {
+                      "exportable": "",
+                      "数据类型": "",
+                      "geometry": "",
+                      "导入类型": "",
+                      "链接": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "dataSource": "GH_TDGH",
+                    "returnFields": [],
+                    "returnFieldStrs": []
+                  },
+                  "label": "重点建设项目",
+                  "value": "base"
+                },
+                {
+                  "config": {
+                    "layerName": "TDYTQ_EF_2020",
+                    "params": {
+                      "exportable": "",
+                      "数据类型": "",
+                      "geometry": "",
+                      "导入类型": "",
+                      "链接": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "面积"
+                    },
+                    "returnFields": [
+                      {
+                        "name": "YSDM",
+                        "type": "esriFieldTypeString",
+                        "alias": "要素代码",
+                        "length": 10,
+                        "domain": null
+                      },
+                      {
+                        "name": "TDYTQLXDM",
+                        "type": "esriFieldTypeString",
+                        "alias": "土地用途区类型代码",
+                        "length": 3,
+                        "domain": null
+                      },
+                      {
+                        "name": "TDYTQBH",
+                        "type": "esriFieldTypeString",
+                        "alias": "土地用途区编号",
+                        "length": 5,
+                        "domain": null
+                      },
+                      {
+                        "name": "SM",
+                        "type": "esriFieldTypeString",
+                        "alias": "说明",
+                        "length": 200,
+                        "domain": null
+                      },
+                      {
+                        "name": "XZQDM",
+                        "type": "esriFieldTypeString",
+                        "alias": "行政区代码",
+                        "length": 12,
+                        "domain": null
+                      }
+                    ],
+                    "returnFieldStrs": [
+                      "要素代码",
+                      "土地用途区类型代码",
+                      "土地用途区编号",
+                      "说明",
+                      "行政区代码"
+                    ],
+                    "dataSource": "GH_TDGH"
+                  },
+                  "label": "土地规划地类",
+                  "value": "base"
+                }
+              ],
+              "url": "/map/rest/analysis/tdghscWithExtra"
+            },
+            "label": "烟台土地规划分析",
+            "value": "yttdghsc"
+          },
+          {
+            "config": {
+              "layers": [
+                {
+                  "config": {
+                    "layerName": "BPDK_320000",
+                    "returnFields": [
+                      {
+                        "name": "PL_PL_ID",
+                        "type": "esriFieldTypeString",
+                        "alias": "地块ID",
+                        "length": 32,
+                        "domain": null
+                      },
+                      {
+                        "name": "SB_SB_ID",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目ID",
+                        "length": 32,
+                        "domain": null
+                      },
+                      {
+                        "name": "PB_PB_ID",
+                        "type": "esriFieldTypeString",
+                        "alias": "报件ID",
+                        "length": 18,
+                        "domain": null
+                      },
+                      {
+                        "name": "PRONAME",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目名称",
+                        "length": 200,
+                        "domain": null
+                      },
+                      {
+                        "name": "USAGE",
+                        "type": "esriFieldTypeString",
+                        "alias": "地块用途",
+                        "length": 100,
+                        "domain": null
+                      },
+                      {
+                        "name": "UNIT_NAME",
+                        "type": "esriFieldTypeString",
+                        "alias": "申请单位名称",
+                        "length": 100,
+                        "domain": null
+                      },
+                      {
+                        "name": "REGIONCODE",
+                        "type": "esriFieldTypeString",
+                        "alias": "行政代码",
+                        "length": 9,
+                        "domain": null
+                      },
+                      {
+                        "name": "PCMC",
+                        "type": "esriFieldTypeString",
+                        "alias": "报件名称",
+                        "length": 255,
+                        "domain": null
+                      },
+                      {
+                        "name": "APP_TYPE",
+                        "type": "esriFieldTypeString",
+                        "alias": "项目类型",
+                        "length": 20,
+                        "domain": null
+                      }
+                    ],
+                    "params": {
+                      "geometry": ""
+                    },
+                    "showIntersect": {
+                      "isShow": true,
+                      "label": "叠加面积"
+                    },
+                    "isFilter": true,
+                    "dataSource": "GL_GLSJ"
+                  },
+                  "label": "报批地块叠加情况",
+                  "value": "bpdkdj"
+                }
+              ]
+            },
+            "label": "报批地块叠加分析",
+            "value": "ytbp"
+          }
+        ],
+        "defaultCrs": 4490,
+        "multiSimpleService": "/map/rest/analysis/multiSimple",
+        "exportComExcelService": "http://10.9.21.192:9016/gis/misc/export/comExcel"
+      },
+      "display": false,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "newquery",
+      "uri": "newquery",
+      "label": "新信息查询",
+      "iconCls": "icon-f-search",
+      "config": {
+        "commonList": [
+          {
+            "name": "江苏政区",
+            "serviceId": "ff808081785d012501785e2a94e30003",
+            "layerId": "0",
+            "params": [
+              {
+                "field": "OBJECTID",
+                "operation": ">",
+                "value": "1",
+                "link": "and"
+              },
+              {
+                "field": "MC",
+                "operation": "like",
+                "value": "",
+                "link": "and"
+              },
+              {
+                "field": "MC",
+                "operation": "=",
+                "value": "",
+                "link": "and"
+              }
+            ]
+          },
+          {
+            "name": "江苏政区",
+            "serviceId": "ff808081785d012501785e2a94e30003",
+            "layerId": "1"
+          }
+        ]
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#3dd9a4"
+    },
+    {
+      "id": "newanalyse",
+      "uri": "newanalyse",
+      "label": "新分析统计",
+      "iconCls": "icon-f-analysis",
+      "config": {
+        "fxztCount": 5,
+        "hzbCount": 5
+      },
+      "display": true,
+      "weight": 0,
+      "color": "#fda03d"
+    }
+  ],
+  "tools": [
+    {
+      "id": "regionselect",
+      "uri": "regionselect",
+      "label": "行政区选择",
+      "iconCls": "icon-f-select-list",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "region",
+      "uri": "region",
+      "label": "行政区定位",
+      "iconCls": "icon-f-location",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "addservice",
+      "uri": "addservice",
+      "label": "添加服务",
+      "iconCls": "icon-f-tickets",
+      "config": {
+        "needAuth": false,
+        "types": [
+          {
+            "type": "ags_tile",
+            "name": "ArcGIS静态切片",
+            "sampleUrl": "http://<enterUrl>"
+          },
+          {
+            "type": "ags_rest",
+            "name": "ArcGIS动态服务",
+            "sampleUrl": "http://<MyServerName>/arcgis/rest/services/<MyServiceName>"
+          },
+          {
+            "type": "spm_tile",
+            "name": "超图静态切片"
+          },
+          {
+            "type": "spm_rest",
+            "name": "超图动态服务"
+          },
+          {
+            "type": "wmts",
+            "name": "WMTS服务"
+          }
+        ]
+      },
+      "display": true,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "fileimporter",
+      "uri": "fileimporter",
+      "label": "导入文件",
+      "iconCls": "icon-f-upload",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "roller",
+      "uri": "roller",
+      "label": "卷帘",
+      "iconCls": "",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "measure",
+      "uri": "measure",
+      "label": "地图工具",
+      "iconCls": "icon-f-measure",
+      "config": {
+        "measurePolygon": [
+          "公顷",
+          "平方公里",
+          "平方米"
+        ],
+        "measureLength": [
+          "公里",
+          "米"
+        ],
+        "markPoint": {
+          "geo": "地理坐标",
+          "pro": "投影坐标",
+          "proTextX": "X坐标(横)",
+          "proTextY": "Y坐标(纵)",
+          "exchangeCoordinate": false
+        },
+        "showTransform": true,
+        "expUrl": "/map/rest/analysis/geoJson2AnyFile",
+        "supportExp": [
+          {
+            "name": "cad文件",
+            "suffix": "*.dwg"
+          },
+          {
+            "name": "shp文件",
+            "suffix": "*.shp"
+          },
+          {
+            "name": "txt文件",
+            "suffix": "*.txt"
+          },
+          {
+            "name": "excel文件",
+            "suffix": "*.excel"
+          }
+        ],
+        "projectUrl": "http://192.168.2.197:9016/gis/misc/project2ProjectedCrs"
+      },
+      "display": true,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "print",
+      "uri": "print",
+      "label": "地图打印",
+      "iconCls": "",
+      "config": {
+        "use": true,
+        "printUrl": "http://192.168.2.205:6080/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export Web Map Task",
+        "iportalUrl": {
+          "desc": "超图iportal的根地址,若使用超图打印,必须启动iportal并将待打印的资源注册到iportal中",
+          "value": "http://192.168.2.148:31231/iportal/services/../"
+        },
+        "iportalTokenConfig": {
+          "url": "http://192.168.2.148:31231/iportal/services/security/tokens.json",
+          "userName": "admin",
+          "password": "Supermap123",
+          "clientType": "NONE",
+          "expiration": 30
+        },
+        "supermapPrintUrl": {
+          "desc": "超图iserver打印接口地址",
+          "value": "http://192.168.2.148:30639/iserver/services/webprinting/rest/webprinting/v1"
+        },
+        "customTemplates": {
+          "desc": "除了公共模板,其他的定制化模板,arcgis或者超图独有的",
+          "value": [
+            {
+              "name": "Letter ANSI A 横向",
+              "value": "Letter ANSI A Landscape",
+              "type": "arcgis"
+            },
+            {
+              "name": "Letter ANSI A 纵向",
+              "value": "Letter ANSI A Portrait",
+              "type": "arcgis"
+            },
+            {
+              "name": "Tabloid ANSI B 横向",
+              "value": "Tabloid ANSI A Landscape",
+              "type": "arcgis"
+            },
+            {
+              "name": "Tabloid ANSI B 纵向",
+              "value": "Tabloid ANSI A Portrait",
+              "type": "arcgis"
+            },
+            {
+              "name": "仅地图",
+              "value": "MAP_ONLY",
+              "type": "arcgis"
+            },
+            {
+              "name": "A2横向",
+              "value": "A2_landscape",
+              "type": "supermap"
+            },
+            {
+              "name": "A2纵向",
+              "value": "A2_portrait",
+              "type": "supermap"
+            }
+          ]
+        },
+        "printType": {
+          "desc": "此配置决定了打印是走arcgis的gp还是超图的打印,若使用超图打印,超图服务需要在iportal中注册",
+          "value": "supermap"
+        },
+        "printFormat": {
+          "desc": "此配置决定了打印输出的格式",
+          "value": {
+            "supermap": [
+              "PDF",
+              "PNG"
+            ],
+            "arcgis": [
+              "PDF",
+              "PNG32",
+              "PNG8",
+              "JPG",
+              "GIF",
+              "EPS",
+              "SVG",
+              "SVGZ"
+            ]
+          }
+        },
+        "printWkid": 4528,
+        "printSrDh": 40
+      },
+      "display": false,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "poilist",
+      "uri": "poilist",
+      "label": "POI查询",
+      "iconCls": "icon-f-info",
+      "config": {
+        "url": "http://172.24.19.39/map/search/solr?",
+        "userDefined": true,
+        "queryField": "DL",
+        "poiInstanceId": "56527c04-4b4d-44f0-a11a-a1f99a4d08fd",
+        "classify": [
+          {
+            "Name": "regionOrg",
+            "label": "政府机构",
+            "icon": "icon-f-city",
+            "item": [
+              {
+                "label": "政府机关",
+                "DM": 1007
+              },
+              {
+                "label": "行政办公大厅",
+                "DM": 1008
+              },
+              {
+                "label": "公检法机构",
+                "DM": ""
+              },
+              {
+                "label": "社会团体",
+                "DM": ""
+              },
+              {
+                "label": "交通车辆管理",
+                "DM": ""
+              },
+              {
+                "label": "职能部门",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "edu",
+            "label": "文化教育",
+            "icon": "icon-f-education",
+            "item": [
+              {
+                "label": "文化场馆",
+                "DM": ""
+              },
+              {
+                "label": "文艺团体",
+                "DM": ""
+              },
+              {
+                "label": "活动中心",
+                "DM": ""
+              },
+              {
+                "label": "传媒机构",
+                "DM": ""
+              },
+              {
+                "label": "科研机构",
+                "DM": ""
+              },
+              {
+                "label": "学校",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "medical",
+            "label": "医疗卫生",
+            "icon": "icon-f-medical",
+            "item": [
+              {
+                "label": "综合医院",
+                "DM": ""
+              },
+              {
+                "label": "专科医院",
+                "DM": ""
+              },
+              {
+                "label": "诊所",
+                "DM": ""
+              },
+              {
+                "label": "急救中心",
+                "DM": ""
+              },
+              {
+                "label": "疾病预防机构",
+                "DM": ""
+              },
+              {
+                "label": "药店",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "service",
+            "label": "生活服务",
+            "icon": "icon-f-service",
+            "item": [
+              {
+                "label": "餐饮",
+                "DM": ""
+              },
+              {
+                "label": "酒店",
+                "DM": ""
+              },
+              {
+                "label": "银行",
+                "DM": ""
+              },
+              {
+                "label": "景点",
+                "DM": ""
+              },
+              {
+                "label": "超市",
+                "DM": ""
+              },
+              {
+                "label": "ATM",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "transport",
+            "label": "交通出行",
+            "icon": "icon-f-transport",
+            "item": [
+              {
+                "label": "车站",
+                "DM": ""
+              },
+              {
+                "label": "地铁站",
+                "DM": ""
+              },
+              {
+                "label": "停车场",
+                "DM": ""
+              },
+              {
+                "label": "加油站",
+                "DM": ""
+              },
+              {
+                "label": "服务区",
+                "DM": ""
+              },
+              {
+                "label": "长途客运站",
+                "DM": ""
+              }
+            ]
+          }
+        ]
+      },
+      "display": false,
+      "weight": 0,
+      "color": null
+    },
+    {
+      "id": "poilistservice",
+      "uri": "poilistservice",
+      "label": "POI查询服务",
+      "iconCls": "icon-f-info",
+      "config": {
+        "queryLayers": [
+          {
+            "layerName": "供地地块320000",
+            "url": "http://192.168.0.36:9011/resp/ff808081791b30410179593c9408009e/ff80808178f3d0bc0178f835ab6400c5/ags_rest/0",
+            "field": "DKMC,DKBH,ZD_GUID,DKMJ,DKYT,GD_GUID,XZQ_DM,BH,XM_MC,TD_JB,TD_ZL,GY_MJ,GY_FS,TD_YT,JE,DG_SJ,PZ_WH,PZ_RQ,LAND_USER,JZDSX_GUID,DZ_BA_BH,GD_ZMJ,PC_MJ,CR_NX,CJ_PRICE,MIN_RJL,MAX_RJL,JD_SJ,JG_SJ,SJ_JD_SJ,SJ_DG_SJ,SJ_JG_SJ,KFJS_QX,QD_RQ,XM_ZT,RKSJ,XZQDM",
+            "queryField": "DKMC,DKYT,GY_FS,PZ_WH",
+            "id": "ff80808178f3d0bc0178f835ab6400c5"
+          }
+        ],
+        "popupType": "popup",
+        "highLightStyle": {
+          "color": "red",
+          "fillColor": "#f0fa2e",
+          "fillOpacity": 0.5
+        },
+        "polygonStyle": {
+          "color": "red",
+          "fillColor": "#add2ff",
+          "fillOpacity": 0.5
+        },
+        "url": "http://172.24.19.39/map/search/solr",
+        "userDefined": true,
+        "classify": [
+          {
+            "Name": "regionOrg",
+            "label": "政府机构",
+            "icon": "icon-f-city",
+            "item": [
+              {
+                "label": "政府机关",
+                "DM": 1007
+              },
+              {
+                "label": "行政办公大厅",
+                "DM": 1008
+              },
+              {
+                "label": "公检法机构",
+                "DM": ""
+              },
+              {
+                "label": "社会团体",
+                "DM": ""
+              },
+              {
+                "label": "交通车辆管理",
+                "DM": ""
+              },
+              {
+                "label": "职能部门",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "edu",
+            "label": "文化教育",
+            "icon": "icon-f-education",
+            "item": [
+              {
+                "label": "文化场馆",
+                "DM": ""
+              },
+              {
+                "label": "文艺团体",
+                "DM": ""
+              },
+              {
+                "label": "活动中心",
+                "DM": ""
+              },
+              {
+                "label": "传媒机构",
+                "DM": ""
+              },
+              {
+                "label": "科研机构",
+                "DM": ""
+              },
+              {
+                "label": "学校",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "medical",
+            "label": "医疗卫生",
+            "icon": "icon-f-medical",
+            "item": [
+              {
+                "label": "综合医院",
+                "DM": ""
+              },
+              {
+                "label": "专科医院",
+                "DM": ""
+              },
+              {
+                "label": "诊所",
+                "DM": ""
+              },
+              {
+                "label": "急救中心",
+                "DM": ""
+              },
+              {
+                "label": "疾病预防机构",
+                "DM": ""
+              },
+              {
+                "label": "药店",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "service",
+            "label": "生活服务",
+            "icon": "icon-f-service",
+            "item": [
+              {
+                "label": "餐饮",
+                "DM": ""
+              },
+              {
+                "label": "酒店",
+                "DM": ""
+              },
+              {
+                "label": "银行",
+                "DM": ""
+              },
+              {
+                "label": "景点",
+                "DM": ""
+              },
+              {
+                "label": "超市",
+                "DM": ""
+              },
+              {
+                "label": "ATM",
+                "DM": ""
+              }
+            ]
+          },
+          {
+            "Name": "transport",
+            "label": "交通出行",
+            "icon": "icon-f-transport",
+            "item": [
+              {
+                "label": "车站",
+                "DM": ""
+              },
+              {
+                "label": "地铁站",
+                "DM": ""
+              },
+              {
+                "label": "停车场",
+                "DM": ""
+              },
+              {
+                "label": "加油站",
+                "DM": ""
+              },
+              {
+                "label": "服务区",
+                "DM": ""
+              },
+              {
+                "label": "长途客运站",
+                "DM": ""
+              }
+            ]
+          }
+        ]
+      },
+      "display": false,
+      "weight": 0,
+      "color": null
+    }
+  ],
+  "widgetStyle": "large",
+  "controls": [
+    {
+      "id": "BaseLayer",
+      "uri": "BaseLayer",
+      "label": "底图切换",
+      "iconCls": "icon-f-overview",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null,
+      "position": "topright"
+    },
+    {
+      "id": "Overview",
+      "uri": "Overview",
+      "label": "鹰眼图",
+      "iconCls": "icon-f-overview",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null,
+      "position": "bottomright"
+    },
+    {
+      "id": "ZoomSlider",
+      "uri": "ZoomSlider",
+      "label": "地图放缩",
+      "iconCls": "icon-f-measure",
+      "config": {},
+      "display": true,
+      "weight": 0,
+      "color": null,
+      "position": "bottomright"
+    },
+    {
+      "id": "Coords",
+      "uri": "Coords",
+      "label": "实时坐标",
+      "iconCls": "icon-f-fullMap",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null,
+      "position": "bottomleft"
+    },
+    {
+      "id": "ScaleBar",
+      "uri": "ScaleBar",
+      "label": "比例尺",
+      "iconCls": "icon-f-measure",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null,
+      "position": "bottomleft"
+    },
+    {
+      "id": "FullMap",
+      "uri": "FullMap",
+      "label": "全图",
+      "iconCls": "icon-f-fullMap",
+      "config": null,
+      "display": true,
+      "weight": 0,
+      "color": null,
+      "position": "bottomright"
+    }
+  ],
+  "templateName": "展示中心",
+  "drawMulti": true,
+  "config": {
+    "showUploadBtn": false,
+    "openAreaTypeChoose": false,
+    "showFeaturesBtn": false,
+    "showSelectAttrBtn": false,
+    "fixtedTableHeader": false,
+    "drawStyle": {
+      "color": "red",
+      "fillColor": "#add2ff",
+      "fillOpacity": 0.5,
+      "opacity": 1,
+      "weight": 2,
+      "dashArray": 0,
+      "radius": 4.5
+    },
+    "showStyleEdit": true
+  }
+}

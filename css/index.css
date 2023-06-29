@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.page {
+    height: 100%;
+    width: 100%;
+    background-color: #2f363c;
+}
+
+.tool {
+    height: 30px;
+    display: flex;
+    justify-items: center;
+    padding: 8px 0;
+    background-color: #c2c2c2;
+}
+
+.tool button {
+    position: relative;
+}
+
+.tool button #input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    height: 100%;
+}
+
+.left-list {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 8px;
+    width: calc(19.1% - 16px);
+    height: calc(100% - 16px);
+    background-color: #eeeeee;
+}
+
+.left-list #resourceList {
+    height: calc(100% - 165px);
+    overflow: auto;
+}
+
+.rigth-serve {
+    display: inline-block;
+    box-sizing: border-box;
+    width: calc(100% - 19.1% - 8px);
+    margin: 8px 8px 8px 0;
+    padding: 8px;
+    height: calc(100% - 16px);
+    background-color: #c2c2c2;
+}
+
+.server-box {
+    height: 61.8%;
+    background-color: #eeeeee;
+}
+
+.server-box>.layui-form {
+    display: grid;
+    grid-template-rows: 38px 130px auto;
+    height: 100%;
+    width: 100%;
+}
+
+.layui-elem-field>div {
+    height: 100%;
+    padding: 8px 8px;
+}
+
+.json-box {
+    height: calc(100% - 61.8% - 8px);
+    margin-top: 8px;
+}
+
+#tplJson {
+    height: calc(100% - 46px);
+}
+
+.layui-form-item .layui-input-split {
+    min-width: 60px;
+    line-height: 38px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.layui-form-item .layui-input-split:hover {
+    opacity: 0.8;
+}
+
+.layui-form-label>span {
+    margin-left: 10px;
+    cursor: pointer;
+}

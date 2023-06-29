@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.3属性识别编辑页面</title>
+    <link href="/lib/layui/css/layui.css" type="text/css" rel="stylesheet"/>
+    <link href="/lib/jsoneditor/jsoneditor.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/css/index.css" type="text/css" rel="stylesheet">
+
+    <script src="/lib/jquery/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/lib/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/lib/jsoneditor/jsoneditor.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/lib/lodash/lodash.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div class="page">
+        <div class="content">
+            <div class="left-list">
+                <div class="url-form">
+                    <form class="layui-form layui-form-pane">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">目录接口</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="catalogApi" autocomplete="off" placeholder="请输入" value="http://192.168.1.46:9022/map/rest/map/getCatalogTreeByRole?type=ZRZYML&userName=fanzihao" lay-verify="required" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">资源接口</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="resourceApi" autocomplete="off" placeholder="请输入" value="http://192.168.1.46:9022/map/rest/map/query/findCapableByResId" lay-verify="required" class="layui-input">
+                            </div>
+                        </div>
+                        <button type="button" lay-submit class="layui-btn layui-btn-fluid layui-btn-normal" lay-filter="init-resource-list">获取目录</button>
+                    </form>
+                </div>
+                <hr>
+                <ul class="layui-menu" id="resourceList"></ul>
+            </div>
+            <div class="rigth-serve">
+                <div class="server-box">
+                    <form class="layui-form layui-form-pane">
+                        <div class="tool">
+                            <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" lay-submit lay-filter="saveIndentify">
+                                <i class="layui-icon layui-icon-add-1"></i> 添加
+                            </button>
+                        </div>
+                        <fieldset class="layui-elem-field layui-field-title">
+                            <legend>服务信息</legend>
+                            <div class="server">
+                                <div id="serverForm">
+
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="layui-elem-field layui-field-title">
+                            <legend>图层信息</legend>
+                            <div class="layer">
+                                <div class="layui-tab" lay-filter="layer-handle" lay-allowclose="true">
+                                    <ul class="layui-tab-title">
+                                    </ul>
+                                    <div class="layui-tab-content">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="json-box">
+                    <div class="tool">
+                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button">
+                            <i class="layui-icon layui-icon-add-1"></i> 导入
+                            <input  type="file"
+                                    id="input"
+                                    name="input"
+                                    accept="application/json">
+                        </button>
+                    </div>
+                    <div id="tplJson"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 服务表单渲染模板 -->
+        <script type="text/html" id="serverForm-template">
+            <div class="layui-row">
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" title="服务名称">服务名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" autocomplete="off" placeholder="请输入" value="{{ d.serverInfo ? d.serverInfo.title : ''}}" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" title="服务地址">服务地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="url" id="url" autocomplete="off" placeholder="请输入" value="{{d.serverInfo ? d.serverInfo.url : ''}}" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+            </div>        
+            {{# if(d.type === 'SuperMap' ) { }}
+                <div class="layui-row">
+                    <div class="layui-col-xs6">
+                          <div class="layui-form-item">    
+                                <label class="layui-form-label" title="数据服务地址">数据服务地址</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="dataUrl" autocomplete="off" id="dataUrl" value="{{d.serverInfo ? d.serverInfo.dataUrl : ''}}" placeholder="请输入" class="layui-input">
+                                </div>
+                                <div class="layui-input-split layui-input-suffix layui-bg-blue" lay-tool="getDataUrl" title="获取字段列表">
+                                    获取
+                                </div>
+                        </div>
+                    </div>
+                </div>    
+            {{# } }}
+        </script>
+
+        <!-- 资源列表渲染模板 -->
+        <script type="text/html" id="resourceList-template">
+            {{#  layui.each(d, function(index, item){ }}
+                <li lay-options="{ resourceId: '{{ item.value }}' }" id="{{item.id}}">
+                    <div class="layui-menu-body-title" >{{ item.label }}</div>
+                </li>
+            {{#  }); }}
+        </script>
+
+        <!-- 图层数据渲染模板 -->
+        <script type="text/html" id="layerData-template">
+            <div id="{{d.id}}">
+                <div class="layui-row layer-info">
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" title="图层名称">图层名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="{{d.id}}-layerName" autocomplete="off" value="{{d.layerName || ''}}" placeholder="请输入" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    {{# if(d.layerId || d.layerId === 0) { }}
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" title="图层ID">图层ID</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="{{d.id}}-layerId" autocomplete="off" value="{{ (d.layerId || d.layerId === 0) ? d.layerId : '' }}" placeholder="请输入" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    {{# } else { }}
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" title="数据集名称">数据集名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="{{d.id}}-dataSet" autocomplete="off" value="{{d.dataSet || ''}}" placeholder="请输入" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    {{# } }}
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">字段信息<span class="layui-font-blue" data-id="{{ d.id }}" lay-tool="getField">获取</span></label>
+                    <div class="layui-input-block">
+                        <div class="layer-fields">
+                            <table class="layui-hide" id="{{d.id}}-fieldTable"></table>
+                        </div>
+                    </div>
+                </div>
+   
+            </div>
+        </script>
+
+        <script type="text/html" id="tableBar-template">
+            <div class="layui-clear-space">
+                <button type="button" class="layui-btn layui-btn-sm layui-btn-normal" lay-event="add">
+                    <i class="layui-icon layui-icon-addition"></i>
+                </button>
+                <button type="button" class="layui-btn layui-btn-sm layui-btn-normal" lay-event="remove">
+                    <i class="layui-icon layui-icon-subtraction"></i>
+                </button>
+            </div>
+        </script>
+    </div>
+
+    <script src="/js/index.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

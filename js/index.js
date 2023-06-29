@@ -78,7 +78,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                                         currentServer.layers[index] = layer;
 
                                         // 更新字段表格
-                                        table.reloadData(id + "-fieldTable", {data: fields});
+                                        table.reload(id + "-fieldTable", {data: fields});
                                         table.resize(id + "-fieldTable");
                                     }
                                 })
@@ -110,7 +110,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                                         currentServer.layers[index] = layer;
 
                                         // 更新字段表格
-                                        table.reloadData(id + "-fieldTable", {data: fields});
+                                        table.reload(id + "-fieldTable", {data: fields});
                                         table.resize(id + "-fieldTable");
                                     }
                                 })

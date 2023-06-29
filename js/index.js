@@ -57,69 +57,68 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
         util.on('lay-tool', {
             // 获取字段
             getField: function() {
-                        let id = this.getAttribute("data-id");
-                        let index = currentServer.layers.findIndex(e => e.id == id);
-                        let layer = currentServer.layers[index];
-                        switch(currentServer.type) {
-                            case "ArcGis": {
-                                let layerUrl = currentServer.serverInfo.url + "/" + layer.layerId;
-                                getServerData(layerUrl + "?f=pjson").then(res => {
-                                    if(res) {
-                                        let fields = res.fields.map(e => {
-                                            return {
-                                                name: e.name,
-                                                alias: e.alias,
-                                                id: e.name
-                                            }
-                                        });
-
-                                        // 更新图层数据
-                                        layer.fields = fields;
-                                        currentServer.layers[index] = layer;
-
-                                        // 更新字段表格
-                                        table.reload(id + "-fieldTable", {data: fields});
-                                        table.resize(id + "-fieldTable");
+                let id = this.getAttribute("data-id");
+                let index = currentServer.layers.findIndex(e => e.id == id);
+                let layer = currentServer.layers[index];
+                switch(currentServer.type) {
+                    case "ArcGis": {
+                        let layerUrl = currentServer.serverInfo.url + "/" + layer.layerId;
+                        getServerData(layerUrl + "?f=pjson").then(res => {
+                            if(res) {
+                                let fields = res.fields.map(e => {
+                                    return {
+                                        name: e.name,
+                                        alias: e.alias,
+                                        id: e.name
                                     }
-                                })
-                                break;
+                                });
+
+                                // 更新图层数据
+                                layer.fields = fields;
+                                currentServer.layers[index] = layer;
+
+                                // 更新字段表格
+                                table.reload(id + "-fieldTable", {data: fields});
+                                table.resize(id + "-fieldTable");
                             }
-                            case "SuperMap": {
-                                // 获取数据服务（数据服务加数据集获取字段）
-                                let dataUrlDom = document.getElementById("dataUrl");
-                                let tempDataUrl = dataUrlDom.value;
-                                let tempDataSet = layer.dataSet;
-                                let splitArray = tempDataSet.split(":");
-                                let dataSourceName = splitArray[0];
-                                let dataSetName = splitArray[1];
-                                let fieldUrl = tempDataUrl + "/datasources/" + dataSourceName + "/datasets/" + dataSetName + "/fields.json";
+                        })
+                        break;
+                    }
+                    case "SuperMap": {
+                        // 获取数据服务（数据服务加数据集获取字段）
+                        let dataUrlDom = document.getElementById("dataUrl");
+                        let tempDataUrl = dataUrlDom.value;
+                        let tempDataSet = layer.dataSet;
+                        let splitArray = tempDataSet.split(":");
+                        let dataSourceName = splitArray[0];
+                        let dataSetName = splitArray[1];
+                        let fieldUrl = tempDataUrl + "/datasources/" + dataSourceName + "/datasets/" + dataSetName + "/fields.json";
 
-                                getServerData(fieldUrl).then(res => {
-                                    if (res) {
-                                        let fieldNameArray = res.fieldNames;
-                                        let fields = fieldNameArray.map(e => {
-                                            return {
-                                                name: e,
-                                                alias: e,
-                                                id: e
-                                            }
-                                        })
-
-                                        // 更新图层数据
-                                        layer.fields = fields;
-                                        currentServer.layers[index] = layer;
-
-                                        // 更新字段表格
-                                        table.reload(id + "-fieldTable", {data: fields});
-                                        table.resize(id + "-fieldTable");
+                        getServerData(fieldUrl).then(res => {
+                            if (res) {
+                                let fieldNameArray = res.fieldNames;
+                                let fields = fieldNameArray.map(e => {
+                                    return {
+                                        name: e,
+                                        alias: e,
+                                        id: e
                                     }
                                 })
 
-                                break;
-                            }
-                            default: break;
-                        }
+                                // 更新图层数据
+                                layer.fields = fields;
+                                currentServer.layers[index] = layer;
 
+                                // 更新字段表格
+                                table.reload(id + "-fieldTable", {data: fields});
+                                table.resize(id + "-fieldTable");
+                            }
+                        })
+
+                        break;
+                    }
+                    default: break;
+                }
             },
             // 获取数据服务地址
             getDataUrl: function(event) {
@@ -213,6 +212,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
              // 阻止默认 form 跳转
             return false;
         });
+
         // 菜单点击事件
         dropdown.on('click(resourceList)', function(options){          
             // 重置当前服务
@@ -266,150 +266,140 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
      * @param {*} response 
      */
     function buildServerDataOfUrl(response) {
-                let tempServerData = response[0];
-                let resourceType = tempServerData.type; 
-                let url = tempServerData.url;
-
-                // 构建服务信息
-                currentServer.serverInfo.title = tempServerData.title;
-                currentServer.serverInfo.url = tempServerData.url;
-
-                // 构建当前服务渲数据
-                switch(resourceType) {
-                    case "sp_ags_rest":
-                    case "ags_tile":
-                    case "ags_rest": {
-                        // 设置类型
-                        currentServer.type = "ArcGis";
-                        
-                        // 判断地址是否到图层一级(是的话修改到服务一级)
-                        if (url.split("MapServer/")[1]) {
-                            url = url.split("MapServer/")[0] + "MapServer";
-                            currentServer.serverInfo.url = url;
-                        }
-
-                        // 获取服务信息
-                        getServerData(url + "?f=pjson").then(response => {
-                            if(response && !response.error) {
-                                let layers = response.layers;
-                                
-                                // 构建图层数据
-                                for(let i = 0; i < layers.length; i++) {
-                                    let perLayer = layers[i];
-                                    currentServer.layers.push({
-                                        layerId: perLayer.id,
-                                        layerName: perLayer.name,
-                                        fields: [],
-                                        id: perLayer.id
-                                    })
-                                }
-
-                                // 渲染右侧服务信息
-                                initSercerBox();
-                            } else {
-                                layer.msg("服务地址为【" + url + "】的资源获取服务数据错误！", {icon: 0});
-                                console.log(url);
-                            }
+        let tempServerData = response[0];
+        let resourceType = tempServerData.type; 
+        let url = tempServerData.url;
+        // 构建服务信息
+        currentServer.serverInfo.title = tempServerData.title;
+        currentServer.serverInfo.url = tempServerData.url;
+        // 构建当前服务渲数据
+        switch(resourceType) {
+            case "sp_ags_rest":
+            case "ags_tile":
+            case "ags_rest": {
+            // 设置类型
+            currentServer.type = "ArcGis";
+            
+            // 判断地址是否到图层一级(是的话修改到服务一级)
+            if (url.split("MapServer/")[1]) {
+                url = url.split("MapServer/")[0] + "MapServer";
+                currentServer.serverInfo.url = url;
+            }
+            // 获取服务信息
+            getServerData(url + "?f=pjson").then(response => {
+                if(response && !response.error) {
+                    let layers = response.layers;
+                    
+                    // 构建图层数据
+                    for(let i = 0; i < layers.length; i++) {
+                        let perLayer = layers[i];
+                        currentServer.layers.push({
+                            layerId: perLayer.id,
+                            layerName: perLayer.name,
+                            fields: [],
+                            id: perLayer.id
                         })
-
-                        break;
                     }
-                    case "spm_tile":
-                    case "spm_rest": {
-                        currentServer.type = "SuperMap";
-                        
-                        // 获取服务信息
-                        getServerData(url + "/layers.json").then(response => {
-                            if(response && !response.error) {
-                                let layers = [];
-                                for (let i = 0; i < response.length; i++) {
-                                    let layer = response[i];
-                                    let layerChild = layer.subLayers.layers[0];
-                                    let datasetInfo = layerChild.datasetInfo;
-                                    let dataSet = datasetInfo.dataSourceName + ":" + datasetInfo.name;
-                                    let id = datasetInfo.dataSourceName + "-" + datasetInfo.name;
-
-                                    currentServer.layers.push({
-                                        dataSet: dataSet,
-                                        layerName: layer.name,
-                                        fields: [],
-                                        id: id
-                                    })
-                                }
-
-                                // 渲染右侧服务信息
-                                initSercerBox();
-                            } else {
-                                layer.msg("服务地址为【" + url + "】的资源获取服务数据错误！", {icon: 0});
-                                console.log(url);
-                            }
-                        })
-                        break
-                    }
-                    default: {
-                        layer.msg("服务类型为【" + resourceType + "】的资源暂不支持配置！", {icon: 0});
-                        break;
-                    }
+                    // 渲染右侧服务信息
+                    initSercerBox();
+                } else {
+                    layer.msg("服务地址为【" + url + "】的资源获取服务数据错误！", {icon: 0});
+                    console.log(url);
                 }
+            })
+            break;
+            }
+            case "spm_tile":
+            case "spm_rest": {
+                currentServer.type = "SuperMap";
+
+                // 获取服务信息
+                getServerData(url + "/layers.json").then(response => {
+                    if(response && !response.error) {
+                        let layers = [];
+                        for (let i = 0; i < response.length; i++) {
+                            let layer = response[i];
+                            let layerChild = layer.subLayers.layers[0];
+                            let datasetInfo = layerChild.datasetInfo;
+                            let dataSet = datasetInfo.dataSourceName + ":" + datasetInfo.name;
+                            let id = datasetInfo.dataSourceName + "-" + datasetInfo.name;
+                            currentServer.layers.push({
+                                dataSet: dataSet,
+                                layerName: layer.name,
+                                fields: [],
+                                id: id
+                            })
+                        }
+                        // 渲染右侧服务信息
+                        initSercerBox();
+                    } else {
+                        layer.msg("服务地址为【" + url + "】的资源获取服务数据错误！", {icon: 0});
+                        console.log(url);
+                    }
+                    })
+                break
+            }
+            default: {
+                layer.msg("服务类型为【" + resourceType + "】的资源暂不支持配置！", {icon: 0});
+            break;
+            }
+        }
     }
     /**
      * 根据资源详情构建数据
      * @param {*} response 
      */
     function buildServerDataOfDetail(response) {
-                let tempServerData = response[0];
-                let resourceType = tempServerData.type; 
-                let tempLayers = tempServerData.resourceView.capables[0].info.layers;
-                
-                // 构建当前服务渲数据
-                switch(resourceType) {
-                    case "sp_ags_rest":
-                    case "ags_tile":
-                    case "ags_rest": {
-                        currentServer.type = "ArcGis";
-                        if (tempServerData.url.split("MapServer/")[1]) {
-                            layer.msg("服务地址错误！", {icon: 0});
-                            console.log(tempServerData.url);
-                        } else {
-                            currentServer.serverInfo.title = tempServerData.title;
-                            currentServer.serverInfo.url = tempServerData.url;
-
-                            for(let i = 0; i < tempLayers.length; i++) {
-                                let perLayer = tempLayers[i];
-                                currentServer.layers.push({
-                                    layerId: perLayer.id,
-                                    layerName: perLayer.name,
-                                    fields: [],
-                                    id: perLayer.id
-                                })
-                            }
-                        }
-
-                        break;
-                    }
-                    case "spm_tile":
-                    case "spm_rest": {
-                        currentServer.type = "SuperMap";
-                        currentServer.serverInfo.title = tempServerData.title;
-                        currentServer.serverInfo.url = tempServerData.url;
-                        currentServer.serverInfo.dataUrl = "";
-
-                        for(let i = 0; i < tempLayers.length; i++) {
-                            let perLayer = tempLayers[i];
-                            currentServer.layers.push({
-                                dataSet: perLayer.datasetInfo.dataSourceName + ":" + perLayer.datasetInfo.name,
-                                layerName: perLayer.name,
-                                fields: [] ,
-                                id: i
-                            })
-                        }
-                        break
-                    }
-                    default: {
-                        layer.msg("服务类型为【" + resourceType + "】的资源暂不支持配置！", {icon: 0});
-                        break;
+        let tempServerData = response[0];
+        let resourceType = tempServerData.type; 
+        let tempLayers = tempServerData.resourceView.capables[0].info.layers;
+        
+        // 构建当前服务渲数据
+        switch(resourceType) {
+            case "sp_ags_rest":
+            case "ags_tile":
+            case "ags_rest": {
+                currentServer.type = "ArcGis";
+                if (tempServerData.url.split("MapServer/")[1]) {
+                    layer.msg("服务地址错误！", {icon: 0});
+                    console.log(tempServerData.url);
+                } else {
+                    currentServer.serverInfo.title = tempServerData.title;
+                    currentServer.serverInfo.url = tempServerData.url;
+                    for(let i = 0; i < tempLayers.length; i++) {
+                        let perLayer = tempLayers[i];
+                        currentServer.layers.push({
+                            layerId: perLayer.id,
+                            layerName: perLayer.name,
+                            fields: [],
+                            id: perLayer.id
+                        })
                     }
                 }
+                break;
+            }
+            case "spm_tile":
+            case "spm_rest": {
+                currentServer.type = "SuperMap";
+                currentServer.serverInfo.title = tempServerData.title;
+                currentServer.serverInfo.url = tempServerData.url;
+                currentServer.serverInfo.dataUrl = "";
+                for(let i = 0; i < tempLayers.length; i++) {
+                    let perLayer = tempLayers[i];
+                    currentServer.layers.push({
+                        dataSet: perLayer.datasetInfo.dataSourceName + ":" + perLayer.datasetInfo.name,
+                        layerName: perLayer.name,
+                        fields: [] ,
+                        id: i
+                    })
+                }
+                break
+            }
+            default: {
+                layer.msg("服务类型为【" + resourceType + "】的资源暂不支持配置！", {icon: 0});
+                break;
+            }
+        }
     }
    /**
     * 迭代获取资源列表
@@ -443,74 +433,74 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
         clearLayerTabs();
         let layers = currentServer.layers;
         for(let i = 0; i < layers.length; i++) {
-                    let layer = layers[i];
-                    let fields = layer.fields;
-                    let contentHtml;
-                    let templateHtml = document.getElementById("layerData-template").innerHTML;
-                    laytpl(templateHtml).render(layer, function (html) {
-                        contentHtml = html;
-                    });
-                    element.tabAdd('layer-handle', {
-                        title: layer.layerName,
-                        content: contentHtml,
-                        id: layer.id,
-                        change: true
-                    });
+            let layer = layers[i];
+            let fields = layer.fields;
+            let contentHtml;
+            let templateHtml = document.getElementById("layerData-template").innerHTML;
+            laytpl(templateHtml).render(layer, function (html) {
+                contentHtml = html;
+            });
+            element.tabAdd('layer-handle', {
+                title: layer.layerName,
+                content: contentHtml,
+                id: layer.id,
+                change: true
+            });
 
-                    // 渲染表格
-                    table.render({
-                        elem: '#' + layer.id + "-fieldTable",
-                        editTrigger: 'dblclick',
-                        css: ['.layui-table-view td[data-edit]{color: #16B777;}'].join(''),
-                        cols: [[
-                            {field:'name', title: '字段名称', width:150},
-                            {field:'alias', title: '别名名称'},
-                            { title:'操作', width:150, toolbar: '#tableBar-template'}
-                        ]],
-                        scrollPos: "fixed",
-                        data: fields,
-                        height: 180
-                    });
-                    //   // 单元格编辑后的事件
-                    // table.on('edit(' + layer.id + "-fieldTable)" , function(obj) {
-                    //     let field = obj.field; // 得到修改的字段
-                    //     let value = obj.value // 得到修改后的值
-                    //     let oldValue = obj.oldValue // 得到修改前的值 -- v2.8.0 新增
-                    //     let data = obj.data // 得到所在行所有键值
-                    //     let col = obj.getCol(); // 得到当前列的表头配置属性 -- v2.8.0 新增
-                        
-                    //     // 值的校验
-                    //     if(value.replace(/\s/g, '') === ''){
-                    //         layer.tips('值不能为空', this, {tips: 1});
-                    //         return obj.reedit(); // 重新编辑 -- v2.8.0 新增
-                    //     }
-                    //     // 编辑后续操作，如提交更新请求，以完成真实的数据更新
-                        
-                    //     // 显示 - 仅用于演示
-                    //     layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改值为：'+ util.escape(value));
-                    // });
-                    table.on('tool(' + layer.id + "-fieldTable)", function(obj){
-                        let data = obj.data;
-                        let layerIndex = currentServer.layers.findIndex(e => e.id == layer.id);
-                        let tempLayer = currentServer.layers[layerIndex];
+            // 渲染表格
+            table.render({
+                elem: '#' + layer.id + "-fieldTable",
+                editTrigger: 'dblclick',
+                css: ['.layui-table-view td[data-edit]{color: #16B777;}'].join(''),
+                cols: [[
+                    {field:'name', title: '字段名称', width:150},
+                    {field:'alias', title: '别名名称'},
+                    { title:'操作', width:150, toolbar: '#tableBar-template'}
+                ]],
+                scrollPos: "fixed",
+                data: fields,
+                height: 180
+            });
+            //   // 单元格编辑后的事件
+            // table.on('edit(' + layer.id + "-fieldTable)" , function(obj) {
+            //     let field = obj.field; // 得到修改的字段
+            //     let value = obj.value // 得到修改后的值
+            //     let oldValue = obj.oldValue // 得到修改前的值 -- v2.8.0 新增
+            //     let data = obj.data // 得到所在行所有键值
+            //     let col = obj.getCol(); // 得到当前列的表头配置属性 -- v2.8.0 新增
+                
+            //     // 值的校验
+            //     if(value.replace(/\s/g, '') === ''){
+            //         layer.tips('值不能为空', this, {tips: 1});
+            //         return obj.reedit(); // 重新编辑 -- v2.8.0 新增
+            //     }
+            //     // 编辑后续操作，如提交更新请求，以完成真实的数据更新
+                
+            //     // 显示 - 仅用于演示
+            //     layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改值为：'+ util.escape(value));
+            // });
+            table.on('tool(' + layer.id + "-fieldTable)", function(obj){
+                let data = obj.data;
+                let layerIndex = currentServer.layers.findIndex(e => e.id == layer.id);
+                let tempLayer = currentServer.layers[layerIndex];
 
-                        switch(obj.event){
-                            case 'add':
-                                tempLayer.fields.push({
-                                    name: "",
-                                    alias: "",
-                                    id: _.uniqueId("field_")
-                                });
-                                break;
-                            case 'remove':
-                                tempLayer.fields = tempLayer.fields.filter(e => e.id !== data.id);
-                                break;
-                            default: break
-                        };
-                        currentServer.layers[layerIndex] = tempLayer;
+                switch(obj.event){
+                    case 'add':
+                        tempLayer.fields.push({
+                            name: "",
+                            alias: "",
+                            id: _.uniqueId("field_")
+                        });
+                        break;
+                    case 'remove':
+                        tempLayer.fields = tempLayer.fields.filter(e => e.id !== data.id);
+                        break;
+                    default: break
+                };
+                currentServer.layers[layerIndex] = tempLayer;
 
-                        table.reload(layer.id + "-fieldTable" , {data: tempLayer.fields});
-                    });
+                table.reload(layer.id + "-fieldTable" , {data: tempLayer.fields});
+            });
         }
         
         // 监听添加事件
@@ -537,31 +527,31 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                 "dictionary": []
             }
             switch(currentServer.type) {
-                        case "ArcGis": {
-                            for (let i = 0; i < currentServer.layers.length; i++) {
-                                let layerInfo = currentServer.layers[i];
-                                let tempIdentifyData = _.cloneDeep(emptyIdentifyDataOfArcGis);
-                                tempIdentifyData.serverid = currentServer.serverInfo.serverid;
-                                tempIdentifyData.layerid = layerInfo.layerId;
-                                tempIdentifyData.fields = layerInfo.fields.map(e => e.name);
+                case "ArcGis": {
+                    for (let i = 0; i < currentServer.layers.length; i++) {
+                        let layerInfo = currentServer.layers[i];
+                        let tempIdentifyData = _.cloneDeep(emptyIdentifyDataOfArcGis);
+                        tempIdentifyData.serverid = currentServer.serverInfo.serverid;
+                        tempIdentifyData.layerid = layerInfo.layerId;
+                        tempIdentifyData.fields = layerInfo.fields.map(e => e.name);
 
-                                identifyDataList.push(tempIdentifyData);
-                            }
-                            break;
-                        }
-                        case "SuperMap": {
-                            for (let i = 0; i < currentServer.layers.length; i++) {
-                                let layerInfo = currentServer.layers[i];
-                                let tempIdentifyData = _.cloneDeep(emptyIdentifyDataOfSuperMap);
-                                tempIdentifyData.serverid = currentServer.serverInfo.serverid;
-                                tempIdentifyData.dataSet = layerInfo.layerId;
-                                tempIdentifyData.fields = layerInfo.fields.map(e => e.name);
+                        identifyDataList.push(tempIdentifyData);
+                    }
+                    break;
+                }
+                case "SuperMap": {
+                    for (let i = 0; i < currentServer.layers.length; i++) {
+                        let layerInfo = currentServer.layers[i];
+                        let tempIdentifyData = _.cloneDeep(emptyIdentifyDataOfSuperMap);
+                        tempIdentifyData.serverid = currentServer.serverInfo.serverid;
+                        tempIdentifyData.dataSet = layerInfo.layerId;
+                        tempIdentifyData.fields = layerInfo.fields.map(e => e.name);
 
-                                identifyDataList.push(tempIdentifyData);
-                            }
-                            break;
-                        }
-                        default: break;
+                        identifyDataList.push(tempIdentifyData);
+                    }
+                    break;
+                }
+                default: break;
             }
             // 更新JSON数据
             let oledJson = jsonEditorObj.get();

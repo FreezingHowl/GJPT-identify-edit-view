@@ -6,14 +6,16 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
     let table = layui.table;
     let form = layui.form;
     let jsonEditorObj; // jsonEditor实例
-    let jsonData = ""; // 全局JSON对象（上传获得）
+    let tplJsonData = ""; // 全局JSON对象（上传获得）
+    let identifyServers = []; // 属性识别服务列表
     let currentServer = {
         type: null,
         serverInfo: {},
         layers:[]
     }; // 当前操作的服务（右侧服务内容展示数据）
     let resourceUrl; // 获取资源详情的URL
-    let mode = "url";
+    let mode = "url"; 
+    let globalResourceList = []; // 全局资源列表
     
     // 初始化页面  
     initPage();    
@@ -40,15 +42,16 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             const reader = new  FileReader()
             reader.readAsText(file);
             reader.onloadend = function (event) {
-                jsonData = JSON.parse(event.srcElement.result);
+                tplJsonData = JSON.parse(event.srcElement.result);
                 
-                // 获取属性识别数据
-                identifyData = getIdentifyDataByTplData();
+                // 获取属性识别服务数据
+                identifyServers = getIdentifyDataByTplData();
 
-                if(identifyData) {
-                    jsonEditorObj.set(jsonData);
+                // 判断属性识别服务
+                if(identifyServers) {
+                    jsonEditorObj.set(tplJsonData);
                 } else {
-                    layer.msg("请上传TPL模板格式数据", {icon: 0});
+                    layer.msg("请上传TPL模板格式数据！", {icon: 0});
                 }
             }
         })
@@ -65,7 +68,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                         let layerUrl = currentServer.serverInfo.url + "/" + layer.layerId;
                         getServerData(layerUrl + "?f=pjson").then(res => {
                             if(res) {
-                                let fields = res.fields.map(e => {
+                                let fileds = res.fields.map(e => {
                                     return {
                                         name: e.name,
                                         alias: e.alias,
@@ -74,11 +77,11 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                                 });
 
                                 // 更新图层数据
-                                layer.fields = fields;
+                                layer.fileds = fileds;
                                 currentServer.layers[index] = layer;
 
                                 // 更新字段表格
-                                table.reload(id + "-fieldTable", {data: fields});
+                                table.reload(id + "-fieldTable", {data: fileds});
                                 table.resize(id + "-fieldTable");
                             }
                         })
@@ -97,7 +100,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                         getServerData(fieldUrl).then(res => {
                             if (res) {
                                 let fieldNameArray = res.fieldNames;
-                                let fields = fieldNameArray.map(e => {
+                                let fileds = fieldNameArray.map(e => {
                                     return {
                                         name: e,
                                         alias: e,
@@ -106,11 +109,11 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                                 })
 
                                 // 更新图层数据
-                                layer.fields = fields;
+                                layer.fileds = fileds;
                                 currentServer.layers[index] = layer;
 
                                 // 更新字段表格
-                                table.reload(id + "-fieldTable", {data: fields});
+                                table.reload(id + "-fieldTable", {data: fileds});
                                 table.resize(id + "-fieldTable");
                             }
                         })
@@ -140,7 +143,6 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                 }).catch(() => {
                     layer.msg("数据服务地址不存在！", {icon: 0});
                 })
-
             }
         });
     }
@@ -152,7 +154,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
      */
     function getIdentifyDataByTplData (tplData) {
         if (!tplData) {
-            tplData = jsonData;
+            tplData = tplJsonData;
         }
         // 获取服务数组（当没有时返回空数组）
         try{
@@ -187,28 +189,37 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
     function initLeftList() {
         // 监听获取目录提交事件
         form.on('submit(init-resource-list)', function(data){
-            let field = data.field;
-            
-            // 获取地址并请求数据（赋值资源接口）
-            let catalogUrl = field.catalogApi;
-            resourceUrl = field.resourceApi;
+            // 判断是否已导入数据
+            if(tplJsonData && (tplJsonData !== "")) {
+                let field = data.field;
+                
+                // 获取地址并请求数据（赋值资源接口）
+                let catalogUrl = field.catalogApi;
+                resourceUrl = field.resourceApi;
 
-            getServerData(catalogUrl).then(res => {
-              if (res) {
-                    // 获取所有资源列表
-                    let catalogTree = res;
-                    let resourceList = getResourceListByCatalogTree(catalogTree.children);
-                    
-                    // 渲染资源列表
-                    let templateHtml = document.getElementById("resourceList-template").innerHTML;
-                    let renderDom = document.getElementById("resourceList");
-                    laytpl(templateHtml).render(resourceList, function(html){
-                        renderDom.innerHTML = html;
-                    });
-                }
-            }).catch(()=> {
-                layer.msg("获取资源资源列表失败！", {icon: 0});
-            })
+                getServerData(catalogUrl).then(res => {
+                    if (res) {
+                        // 获取所有资源列表
+                        let catalogTree = res;
+                        let resourceList = getResourceListByCatalogTree(catalogTree.children);
+
+                        // 补充已读标识
+                        resourceList = resourceList.map(e => {
+                            e.isHaven = identifyServers.map(e => e.serverid).includes(e.value);
+                            return e;
+                        })
+                        globalResourceList = resourceList;
+                        
+                        // 渲染资源列表
+                        runderLeftList(resourceList);
+                    }
+                }).catch(()=> {
+                    layer.msg("获取资源资源列表失败！", {icon: 0});
+                })
+            } else {
+                layer.msg("请先导入TPL文件模板！", {icon: 0});
+            }
+
              // 阻止默认 form 跳转
             return false;
         });
@@ -261,6 +272,19 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             });
         })
     }
+
+    /**
+     * 渲染左侧列表
+     * @param {*} data 
+     */
+    function runderLeftList(data) {
+        let templateHtml = document.getElementById("resourceList-template").innerHTML;
+        let renderDom = document.getElementById("resourceList");
+        laytpl(templateHtml).render(data, function(html){
+            renderDom.innerHTML = html;
+        });
+    }
+
     /**
      * 根据服务地址构建数据
      * @param {*} response 
@@ -293,11 +317,20 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                     // 构建图层数据
                     for(let i = 0; i < layers.length; i++) {
                         let perLayer = layers[i];
+
+                        // 如果属性识别列表中已存在时，使用属性识别列表中的数据
+                        let tempIdentifyData = getIdentifyServerByCurrentServer(perLayer.id);
+
+                        // 补充url和dataUrl
+                        if(tempIdentifyData) {
+                            currentServer.serverInfo.url = tempIdentifyData.realUrl && tempIdentifyData.realUrl !== "" ?  tempIdentifyData.realUrl : currentServer.serverInfo.url;
+                        }
+
                         currentServer.layers.push({
-                            layerId: perLayer.id,
+                            layerId: tempIdentifyData ? tempIdentifyData.layerid : perLayer.id,
                             layerName: perLayer.name,
-                            fields: [],
-                            id: perLayer.id
+                            fileds: tempIdentifyData ? tempIdentifyData.fileds.map(e => { return{name: e, alias: e, id: e}}) : [],
+                            id: tempIdentifyData ? tempIdentifyData.layerid : perLayer.id
                         })
                     }
                     // 渲染右侧服务信息
@@ -316,17 +349,26 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                 // 获取服务信息
                 getServerData(url + "/layers.json").then(response => {
                     if(response && !response.error) {
-                        let layers = [];
                         for (let i = 0; i < response.length; i++) {
                             let layer = response[i];
                             let layerChild = layer.subLayers.layers[0];
                             let datasetInfo = layerChild.datasetInfo;
                             let dataSet = datasetInfo.dataSourceName + ":" + datasetInfo.name;
                             let id = datasetInfo.dataSourceName + "-" + datasetInfo.name;
+
+                            // 如果属性识别列表中已存在时，使用属性识别列表中的数据
+                            let tempIdentifyData = getIdentifyServerByCurrentServer(layer.id);
+
+                            // 补充url和dataUrl
+                            if(tempIdentifyData) {
+                                currentServer.serverInfo.url = tempIdentifyData.realUrl && tempIdentifyData.realUrl !== "" ?  tempIdentifyData.realUrl : currentServer.serverInfo.url;
+                                currentServer.serverInfo.dataUrl = tempIdentifyData.dataUrl && tempIdentifyData.dataUrl !== "" ?  tempIdentifyData.dataUrl : currentServer.serverInfo.dataUrl;
+                            }
+
                             currentServer.layers.push({
-                                dataSet: dataSet,
+                                dataSet: tempIdentifyData ? tempIdentifyData.datasetName : dataSet,
                                 layerName: layer.name,
-                                fields: [],
+                                fileds: tempIdentifyData ? tempIdentifyData.fileds.map(e => { return{name: e, alias: e, id: e}}) : [],
                                 id: id
                             })
                         }
@@ -336,7 +378,9 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                         layer.msg("服务地址为【" + url + "】的资源获取服务数据错误！", {icon: 0});
                         console.log(url);
                     }
-                    })
+                }).catch(()=> {
+                    layer.msg("服务地址为【" + url + "】的资源获取服务数据错误！", {icon: 0});
+                })
                 break
             }
             default: {
@@ -345,6 +389,31 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             }
         }
     }
+
+    /**
+     * 根据当前服务获取属性识别数据
+     * 
+     * @param {*} layerMarkValue 
+     * @returns 
+     */
+    function getIdentifyServerByCurrentServer(layerMarkValue) {
+        if(identifyServers.length === 0) {
+            return null;
+        }
+
+        let returnServer = null;
+        for(let i = 0; i < identifyServers.length; i++) {
+            let server = identifyServers[i];
+            let tempKey = currentServer.type === "ArcGis" ? "layerid" : "datasetName";
+
+            if(server.serverid === currentServer.serverInfo.serverid && server[tempKey] === layerMarkValue) {
+                returnServer = server;
+            }
+        }
+
+        return returnServer;
+    }
+
     /**
      * 根据资源详情构建数据
      * @param {*} response 
@@ -371,7 +440,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                         currentServer.layers.push({
                             layerId: perLayer.id,
                             layerName: perLayer.name,
-                            fields: [],
+                            fileds: [],
                             id: perLayer.id
                         })
                     }
@@ -389,7 +458,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                     currentServer.layers.push({
                         dataSet: perLayer.datasetInfo.dataSourceName + ":" + perLayer.datasetInfo.name,
                         layerName: perLayer.name,
-                        fields: [] ,
+                        fileds: [] ,
                         id: i
                     })
                 }
@@ -434,7 +503,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
         let layers = currentServer.layers;
         for(let i = 0; i < layers.length; i++) {
             let layer = layers[i];
-            let fields = layer.fields;
+            let fileds = layer.fileds;
             let contentHtml;
             let templateHtml = document.getElementById("layerData-template").innerHTML;
             laytpl(templateHtml).render(layer, function (html) {
@@ -453,32 +522,27 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                 editTrigger: 'dblclick',
                 css: ['.layui-table-view td[data-edit]{color: #16B777;}'].join(''),
                 cols: [[
-                    {field:'name', title: '字段名称', width:150},
-                    {field:'alias', title: '别名名称'},
+                    {field:'name', title: '字段名称', width:150, edit: "editable"},
+                    {field:'alias', title: '别名名称', edit: "editable"},
                     { title:'操作', width:150, toolbar: '#tableBar-template'}
                 ]],
                 scrollPos: "fixed",
-                data: fields,
+                data: fileds,
                 height: 180
             });
-            //   // 单元格编辑后的事件
-            // table.on('edit(' + layer.id + "-fieldTable)" , function(obj) {
-            //     let field = obj.field; // 得到修改的字段
-            //     let value = obj.value // 得到修改后的值
-            //     let oldValue = obj.oldValue // 得到修改前的值 -- v2.8.0 新增
-            //     let data = obj.data // 得到所在行所有键值
-            //     let col = obj.getCol(); // 得到当前列的表头配置属性 -- v2.8.0 新增
-                
-            //     // 值的校验
-            //     if(value.replace(/\s/g, '') === ''){
-            //         layer.tips('值不能为空', this, {tips: 1});
-            //         return obj.reedit(); // 重新编辑 -- v2.8.0 新增
-            //     }
-            //     // 编辑后续操作，如提交更新请求，以完成真实的数据更新
-                
-            //     // 显示 - 仅用于演示
-            //     layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改值为：'+ util.escape(value));
-            // });
+              // 单元格编辑后的事件
+            table.on('edit(' + layer.id + "-fieldTable)" , function(obj) {
+                let field = obj.field; // 得到修改的字段
+                let value = obj.value // 得到修改后的值
+                let oldValue = obj.oldValue // 得到修改前的值 -- v2.8.0 新增
+            
+                // 值的校验
+                if(field === "name" && value.replace(/\s/g, '') === ''){
+                    layui.layer.msg("字段名不可为空！", {icon: 0});
+                    return obj.reedit(); // 重新编辑 -- v2.8.0 新增
+                }
+            });
+
             table.on('tool(' + layer.id + "-fieldTable)", function(obj){
                 let data = obj.data;
                 let layerIndex = currentServer.layers.findIndex(e => e.id == layer.id);
@@ -486,20 +550,20 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
 
                 switch(obj.event){
                     case 'add':
-                        tempLayer.fields.push({
+                        tempLayer.fileds.push({
                             name: "",
                             alias: "",
                             id: _.uniqueId("field_")
                         });
                         break;
                     case 'remove':
-                        tempLayer.fields = tempLayer.fields.filter(e => e.id !== data.id);
+                        tempLayer.fileds = tempLayer.fileds.filter(e => e.id !== data.id);
                         break;
                     default: break
                 };
                 currentServer.layers[layerIndex] = tempLayer;
 
-                table.reload(layer.id + "-fieldTable" , {data: tempLayer.fields});
+                table.reload(layer.id + "-fieldTable" , {data: tempLayer.fileds});
             });
         }
         
@@ -511,16 +575,19 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             let emptyIdentifyDataOfArcGis = {
                 "serverid": "",
                 "layerid": "",
-                "fields": [],
+                "fileds": [],
                 "isIdentify": true,
                 "buttons": [],
+                "realUrl": "",
                 "popup": "",
                 "dictionary": []
             }
             let emptyIdentifyDataOfSuperMap = {
                 "serverid": "",
                 "dataSet": "",
-                "fields": [],
+                "fileds": [],
+                "realUrl": "",
+                "dataUrl": "",
                 "isIdentify": true,
                 "buttons": [],
                 "popup": "",
@@ -532,8 +599,9 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                         let layerInfo = currentServer.layers[i];
                         let tempIdentifyData = _.cloneDeep(emptyIdentifyDataOfArcGis);
                         tempIdentifyData.serverid = currentServer.serverInfo.serverid;
+                        tempIdentifyData.realUrl = currentServer.serverInfo.url;
                         tempIdentifyData.layerid = layerInfo.layerId;
-                        tempIdentifyData.fields = layerInfo.fields.map(e => e.name);
+                        tempIdentifyData.fileds = layerInfo.fileds.map(e => e.name);
 
                         identifyDataList.push(tempIdentifyData);
                     }
@@ -544,8 +612,10 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
                         let layerInfo = currentServer.layers[i];
                         let tempIdentifyData = _.cloneDeep(emptyIdentifyDataOfSuperMap);
                         tempIdentifyData.serverid = currentServer.serverInfo.serverid;
+                        tempIdentifyData.realUrl = currentServer.serverInfo.url;
+                        tempIdentifyData.dataUrl = currentServer.serverInfo.dataUrl;
                         tempIdentifyData.dataSet = layerInfo.layerId;
-                        tempIdentifyData.fields = layerInfo.fields.map(e => e.name);
+                        tempIdentifyData.fileds = layerInfo.fileds.map(e => e.name);
 
                         identifyDataList.push(tempIdentifyData);
                     }
@@ -556,22 +626,18 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             // 更新JSON数据
             let oledJson = jsonEditorObj.get();
             if(oledJson && oledJson.widgets && (oledJson.widgets.findIndex(e => e.id === "identify") !== -1)) {     
-                let services = getIdentifyDataByTplData(oledJson);;
-                
-                // 判断TPL数据中是否已存在对应配置
-                let unIncludeIdentifyDataList = getDifferentInclude(identifyDataList, services);
-                if(unIncludeIdentifyDataList.length !== identifyDataList.length) {
-                    layer.msg("已移除重复图层", {icon: 0});
-                }
-                // 合并配置
-                services = services.concat(unIncludeIdentifyDataList);
+                // 构建属性识别服务列表
+                buildIdentifyServerList(identifyDataList);
                 
                 // 更新TPL数据
                 let widgets = oledJson.widgets;
                 let identifyIndex = widgets.findIndex(e => e.id === "identify");
-                widgets[identifyIndex].config.services = services;
+                widgets[identifyIndex].config.services = identifyServers;
                 oledJson.widgets = widgets;
                 jsonEditorObj.set(oledJson);
+
+                // 更新左侧列表
+                updateLeftListByIdentifyServers();
 
                 layer.msg("配置添加成功！", {icon: 0});
             } else {
@@ -580,6 +646,44 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
              // 阻止默认 form 跳转
             return false;
         });
+    }
+    /**
+     * 构建属性识别服务列表（保留新增数据，替换已有数据）
+     * @param {*} layerList 
+     */
+    function buildIdentifyServerList(layerList) {
+        let unIncludeArray = [];
+        for(let i = 0; i < layerList.length; i++ ) {
+            let layer = layerList[i];
+            let layerExtraParam = layer.datasetName || layer.layerid;
+
+            let unInclude = true;
+            for(let j = 0; j < identifyServers.length; j++) {
+                let identify = identifyServers[j];
+                let identifyExtraParam = identify.datasetName || identify.layerid;
+
+                if(layer.serverid === identify.serverid && layerExtraParam === identifyExtraParam) {
+                    identifyServers[j] = layer;
+                    unInclude = false;
+                }
+            }
+
+            if(unInclude) {
+                unIncludeArray.push(layer);
+            }
+        }
+        identifyServers = identifyServers.concat(unIncludeArray);
+    }
+
+    /**
+     * 更新左侧列表
+     */
+    function updateLeftListByIdentifyServers() {
+        globalResourceList.forEach(resource => {
+            resource.isHaven = identifyServers.findIndex(e => e.serverid === resource.value) !== -1;
+        })
+
+        runderLeftList(globalResourceList);
     }
     /**
      * 获取目标数组在对比数组中不存在的数组列表
@@ -631,7 +735,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             language: "zh-CN", // 翻译语言
             enableSort: true // 启用排序功能
         }
-        let tempJsonData = jsonData;
+        let tempJsonData = tplJsonData;
         jsonEditorObj = new JSONEditor(container, options, tempJsonData);
     }
 });

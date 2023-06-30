@@ -121,7 +121,7 @@
         <!-- 资源列表渲染模板 -->
         <script type="text/html" id="resourceList-template">
             {{#  layui.each(d, function(index, item){ }}
-                <li lay-options="{ resourceId: '{{ item.value }}' }" id="{{item.id}}">
+                <li lay-options="{ resourceId: '{{ item.value }}' }" id="{{item.id}}" class="{{item.isHaven ? 'layui-bg-green': ''}}">
                     <div class="layui-menu-body-title" >{{ item.label }}</div>
                 </li>
             {{#  }); }}

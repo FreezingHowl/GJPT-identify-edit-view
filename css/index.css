@@ -105,3 +105,7 @@ body {
     margin-left: 10px;
     cursor: pointer;
 }
+
+.layui-menu-item-checked {
+    background-color: #1e9fff !important;
+}

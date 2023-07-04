@@ -42,6 +42,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             const reader = new  FileReader()
             reader.readAsText(file);
             reader.onloadend = function (event) {
+				response.target.value = null;
                 tplJsonData = JSON.parse(event.srcElement.result);
                 
                 // 获取属性识别服务数据
@@ -158,7 +159,7 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
         }
         // 获取服务数组（当没有时返回空数组）
         try{
-            let widgets = tplData.widgets || [];
+            let widgets = (tplData.widgets || []).concat(tplData.tools || []);
             let tempIdentifyData = widgets.find(e => e.id === "identify");
             let services = tempIdentifyData.config.services;
             return services;
@@ -718,14 +719,13 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
     function initJsonEditor() {
         let container = document.getElementById("tplJson");
         let options = {
-            mode: "tree", // 编辑器模式
+            mode: "code", // 编辑器模式
             onError: function (error) {
                 console.log(error);
             }, // 错误回调
             sortObjectKeys: false, // 通过字段进行排序（不按照插入时顺序）
             limitDragging: false, // 限制拖拽（只能在本父级内拖拽）
             history: true, // 开启历史记录（出现前进和后退按钮）
-            modes:["tree", "view","code"], // 模式列表
             name: "Object", // 根节点的初始字段名称
             search: true, // 启用搜索
             indentation: 2, // 缩进字节数
@@ -733,7 +733,10 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             navigationBar: true, // 开启导航栏
             statusBar: true, // 开启字节计数器
             language: "zh-CN", // 翻译语言
-            enableSort: true // 启用排序功能
+            enableSort: true, // 启用排序功能
+            onChangeText: function (val){
+				tplJsonData = JSON.parse(val);
+			}			
         }
         let tempJsonData = tplJsonData;
         jsonEditorObj = new JSONEditor(container, options, tempJsonData);

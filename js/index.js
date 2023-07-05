@@ -626,15 +626,16 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             }
             // 更新JSON数据
             let oledJson = jsonEditorObj.get();
-            if(oledJson && oledJson.widgets && (oledJson.widgets.findIndex(e => e.id === "identify") !== -1)) {     
+            let where = getWhereOfIdentify(oledJson);
+            if(where) {     
                 // 构建属性识别服务列表
                 buildIdentifyServerList(identifyDataList);
                 
                 // 更新TPL数据
-                let widgets = oledJson.widgets;
+                let widgets = oledJson[where];
                 let identifyIndex = widgets.findIndex(e => e.id === "identify");
                 widgets[identifyIndex].config.services = identifyServers;
-                oledJson.widgets = widgets;
+                oledJson[where] = widgets;
                 jsonEditorObj.set(oledJson);
 
                 // 更新左侧列表
@@ -648,6 +649,27 @@ layui.use(['laytpl', 'dropdown', 'element', 'util', 'table', 'form'], function()
             return false;
         });
     }
+    /**
+     * 获取属性识别在哪里
+     * 
+     * @param {*} json 
+     * @returns 
+     */
+    function getWhereOfIdentify(json) {
+        let widgets = json.widgets;
+        let tools = json.tools;
+        let identifyIndexOfWidgets = widgets.findIndex(e => e.id === "identify");
+        let identifyIndexOfTools = tools.findIndex(e => e.id === "identify");
+
+        if(identifyIndexOfWidgets !== -1) {
+            return "widgets";
+        } else if (identifyIndexOfTools !== -1){
+            return "tools";
+        } else {
+            return null;
+        }
+    }
+
     /**
      * 构建属性识别服务列表（保留新增数据，替换已有数据）
      * @param {*} layerList 
